@@ -4,7 +4,6 @@ import { useTheme } from "next-themes";
 import { ContactProps } from "@/lib/types";
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Phone, Linkedin, Github } from "lucide-react";
 
 export default function Contact(data: ContactProps) {
     const { theme } = useTheme();
@@ -33,15 +32,15 @@ export default function Contact(data: ContactProps) {
                 <div className="w-full flex md:flex-row flex-col items-center justify-around gap-15">
                     <div className="w-fit md:max-w-1/2 flex flex-col align-start justify-start gap-10">
 
-                        <p className={`text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-500'}
+                        <p className={`md:text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-500'}
                             font-medium leading-relaxed text-lg text-balance
                             pr-5 transition-colors duration-300`}>
                             "Building innovative solutions through clean code, creative problem-solving, and seamless collaboration. Let's turn ideas into impact."
                         </p>
 
-                        <div className="flex flex-col justify-start gap-5 max-w-3/4  md:max-w-full lg:max-w-2/3">
-                            <h1 className="text-start w-full text-xl font-bold">Let's Connect</h1>
-                            <div className="flex flex-row w-full justify-between max-w-sm">
+                        <div className="flex flex-col justify-center items-center gap-5 max-w-full lg:max-w-2/3">
+                            <h1 className="text-start w-full max-w-3/4 sm:max-w-full text-xl font-bold">Let's Connect</h1>
+                            <div className="flex flex-row w-full justify-between max-w-3/4 sm:max-w-full">
                                 <Link href={`${data.linkedin}`} target="_blank" rel="noopener noreferrer" >
                                     <div className={`border border-gray-300 w-fit h-fit rounded-full hover:bg-linear-to-tr ${theme == "dark" ? " shadow-gray-600 hover:from-indigo-800 hover:via-indigo-600 hover:to-blue-950" : "shadow-gray-500 hover:from-purple-600 hover:via-violet-400 hover:to-indigo-500 hover:border-purple-600"} hover:border-gray-400 p-3 transition duration-300 hover:shadow-md`}>
                                         <Image

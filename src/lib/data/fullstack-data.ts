@@ -232,12 +232,12 @@ const FrameworkSkills: SkillsItem = {
 
 const SoftSkills: SkillsItem = {
     category: "Soft Skills",
-    skills: ["Team Player", "Detail-oriented", "Communication Skills"]
+    skills: ["Team Player", "Detail-oriented", "Communication"]
 }
 
 export const skill: SkillsProps = {
     skills: [FrontendSkills, BackendSkills, ProgrammingSkills,
-        AISkills, VisualizationSkills, FrameworkSkills]
+        AISkills, VisualizationSkills, FrameworkSkills, SoftSkills]
 }
 
 const MindersAchievment: AchievementItem = {
