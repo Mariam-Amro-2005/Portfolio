@@ -6,21 +6,12 @@ import ThemeToggle from "./ThemeToggle";
 import { useTheme } from "next-themes";
 import { Menu, X } from "lucide-react";
 
-const sections = [
-    "about",
-    "education",
-    "experience",
-    "projects",
-    "skills",
-    "achievements",
-    "contact",
-];
-
 interface NavbarProps {
-    mode?: 'fullstack' | 'ai';  // Optional - just for display if you want
+    mode?: 'fullstack' | 'ai';
+    sections: string[]; // Dynamic sections from data
 }
 
-export default function Navbar({ mode }: NavbarProps) {
+export default function Navbar({ mode, sections }: NavbarProps) {
     const [active, setActive] = useState("");
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { theme } = useTheme();
@@ -52,7 +43,7 @@ export default function Navbar({ mode }: NavbarProps) {
         });
 
         return () => observers.forEach((obs) => obs.disconnect());
-    }, []);
+    }, [sections]); // Re-run when sections change
 
     useEffect(() => {
         const handleResize = () => {
@@ -81,13 +72,21 @@ export default function Navbar({ mode }: NavbarProps) {
         setIsMenuOpen(false);
     };
 
+    // Capitalize first letter and handle special cases
+    const formatLabel = (id: string) => {
+        if (id === 'achievements' || id === 'certifications') {
+            return id.charAt(0).toUpperCase() + id.slice(1);
+        }
+        return id.charAt(0).toUpperCase() + id.slice(1);
+    };
+
     return (
         <nav className="flex justify-center mt-6 mb-6 sticky top-4 z-50 px-4">
             <div className="relative w-full max-w-6xl">
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center justify-center">
                     <div className="flex items-center border border-slate-300 backdrop-blur-md shadow-sm rounded-full px-6 py-3 gap-6">
-                        {/* Optional: Show current mode pill */}
+                        {/* Optional mode pill */}
                         {mode && (
                             <div className={`
                                 px-3 py-1 rounded-full text-xs font-semibold uppercase
@@ -107,7 +106,7 @@ export default function Navbar({ mode }: NavbarProps) {
                                 className={linkStyle(id)}
                                 onClick={(e) => handleLinkClick(e, id)}
                             >
-                                {id.charAt(0).toUpperCase() + id.slice(1)}
+                                {formatLabel(id)}
                             </Link>
                         ))}
 
@@ -115,7 +114,7 @@ export default function Navbar({ mode }: NavbarProps) {
                     </div>
                 </div>
 
-                {/* Mobile Navigation - keep existing mobile code */}
+                {/* Mobile Navigation */}
                 <div className="md:hidden flex items-center justify-between">
                     <div className="flex items-center border border-slate-300 backdrop-blur-md shadow-sm rounded-full px-2 py-2">
                         {mode && (
@@ -141,7 +140,7 @@ export default function Navbar({ mode }: NavbarProps) {
                     </button>
                 </div>
 
-                {/* Mobile Menu Dropdown - keep existing */}
+                {/* Mobile Menu Dropdown */}
                 {isMenuOpen && (
                     <div className="absolute top-16 left-0 right-0 md:hidden">
                         <div className="border border-slate-300 backdrop-blur-md bg-white/90 dark:bg-slate-900/90 shadow-lg rounded-2xl py-2 px-2">
@@ -155,7 +154,7 @@ export default function Navbar({ mode }: NavbarProps) {
                                         }`}
                                     onClick={(e) => handleLinkClick(e, id)}
                                 >
-                                    {id.charAt(0).toUpperCase() + id.slice(1)}
+                                    {formatLabel(id)}
                                 </Link>
                             ))}
                         </div>

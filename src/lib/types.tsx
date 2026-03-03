@@ -1,3 +1,5 @@
+import { PortfolioData } from "./data";
+
 export interface HeroProps {
     name: string;
     typingWords: string[];
@@ -97,4 +99,11 @@ export interface ContactProps {
     phone: string
     linkedin: string
     github: string
+}
+
+// Add this new type for navbar sections
+export interface NavbarSection {
+    id: string;
+    label: string;
+    showIf?: (data: PortfolioData) => boolean; // Optional condition
 }

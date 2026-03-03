@@ -281,5 +281,6 @@ export const fullstackData: PortfolioData = {
     projects: project,
     skills: skill,
     achievements: achievement,
+    certifications: certificate,
     contact: contact,
 };

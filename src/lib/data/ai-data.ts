@@ -319,6 +319,7 @@ export const aiData: PortfolioData = {
     experience: experience,
     projects: project,
     skills: skill,
+    certifications: certificate,
     achievements: achievement,
     contact: contact,
 };
