@@ -103,7 +103,7 @@ export const experience: ExperienceProps = {
 const HealMeals: ProjectItem = {
     title: "HealMeals - Full-Stack Web App",
     description: "HealMeals was built with a clear purpose: helping users make smarter food choices based on their health needs. As part of the development team, I contributed to building a full-stack application that recommends and filters recipes tailored to allergies, dietary restrictions, and fitness goals. On the frontend, I developed responsive React (TypeScript) components and connected them to Spring Boot backend services, ensuring smooth and reliable data flow. Working closely with teammates, I helped bridge frontend and backend systems to deliver a seamless experience across both web and mobile platforms.",
-    image: "/HealMeals-Cover.png",
+    image: "/fullstack/HealMeals-Cover.png",
     tech: [
         "React",
         "TypeScript",
@@ -119,7 +119,7 @@ const HealMeals: ProjectItem = {
 const FurnitureHome: ProjectItem = {
     title: "Furniture Home – E-Commerce Backend",
     description: "In this project, my team and I focused on powering the logic behind an e-commerce experience. I designed and implemented the Order module using Spring Boot, handling everything from entity modeling and database queries to business logic and REST API endpoints. I built features for order placement, retrieval, and status tracking, ensuring smooth checkout integration and optimized database performance. Collaborating within a cross-functional team, I contributed to delivering production-ready backend services that supported real-world e-commerce workflows.",
-    image: "/FurnitureHome-Cover.png",
+    image: "/fullstack/FurnitureHome-Cover.png",
     tech: [
         "Spring Boot", "Lombok", "MySQL"
     ],
@@ -130,9 +130,8 @@ const FurnitureHome: ProjectItem = {
 
 const ReelVerse: ProjectItem = {
     title: "ReelVerse – TMDB Media Browser Web App",
-    // description: "Developed ReelVerse, a responsive web application that allows users to explore trending movies and TV shows through an interactive and user-friendly interface. Built using React and integrated with multiple TMDB APIs, the app features search, genre filtering, pagination, and detailed media pages powered by centralized state management. Designed with a strong focus on performance, smooth navigation, and cross-device responsiveness to deliver an engaging user experience.",
     description: "ReelVerse began as a way to transform raw movie data into an engaging discovery experience. I built this responsive React application to help users seamlessly explore trending movies and TV shows through an intuitive interface. By integrating multiple TMDB APIs and implementing centralized state management, I created a smooth browsing journey featuring search, genre filtering, pagination, and dynamic detail pages. The result is a fast, interactive platform designed to make content discovery effortless across devices.",
-    image: "/ReelVerse-Cover.png",
+    image: "/fullstack/ReelVerse-Cover.png",
     tech: [
         "React",
         "JavaScript",
@@ -149,9 +148,8 @@ const ReelVerse: ProjectItem = {
 
 const LMS: ProjectItem = {
     title: "Learning Management System",
-    // description: "Developed a backend Learning Management System using Spring Boot to support assignment management, submissions, and grading workflows. Designed and implemented RESTful APIs to streamline communication between system components and enable automated feedback features. Applied a modular and secure architecture with role-based access control to ensure scalable performance and clear separation between student and instructor functionalities.",
     description: "This project was driven by the idea of simplifying academic workflows through structured backend design. I developed a Spring Boot–based Learning Management System that organizes assignments, submissions, and grading into clear processes. By designing RESTful APIs and implementing role-based access control, I ensured that students and instructors each had streamlined experiences. The system emphasizes modular architecture, making it scalable, maintainable, and ready to evolve with growing academic needs.",
-    image: "/lms-erd-final.png",
+    image: "/fullstack/lms-erd-final.png",
     tech: ["Spring Boot", "Java"],
     startDate: "Nov 2024",
     endDate: "Dec 2024",
@@ -160,9 +158,8 @@ const LMS: ProjectItem = {
 
 const Library: ProjectItem = {
     title: "Online Library System",
-    // description: "Built a full-stack web application using Django that allows users to browse, borrow, and manage books through an intuitive interface. Implemented secure role-based access for users and administrators to manage books and accounts efficiently. Integrated external APIs and a SQLite database to support reliable data storage and seamless CRUD operations.",
     description: "The Online Library System was built to replicate the experience of managing a digital library from both user and administrator perspectives. Using Django, my team and I developed a full-stack application where users can browse and borrow books while administrators manage inventory and accounts securely. By integrating a database and external APIs, we created a smooth content management flow that balances usability with structured backend logic.",
-    image: "/Online-Library-Cover.png",
+    image: "/fullstack/Online-Library-Cover.png",
     tech: ["Django", "HTML", "CSS", "JavaScript"],
     startDate: "May 2024",
     endDate: "Jun 2024",
