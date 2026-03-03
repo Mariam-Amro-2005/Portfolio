@@ -43,11 +43,12 @@ export default function Navbar({ mode, sections }: NavbarProps) {
         });
 
         return () => observers.forEach((obs) => obs.disconnect());
-    }, [sections]); // Re-run when sections change
+    }, [sections]);
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth >= 768) {
+            // Change from 768 to 815
+            if (window.innerWidth >= 815) {
                 setIsMenuOpen(false);
             }
         };
@@ -72,7 +73,6 @@ export default function Navbar({ mode, sections }: NavbarProps) {
         setIsMenuOpen(false);
     };
 
-    // Capitalize first letter and handle special cases
     const formatLabel = (id: string) => {
         if (id === 'achievements' || id === 'certifications') {
             return id.charAt(0).toUpperCase() + id.slice(1);
@@ -83,15 +83,15 @@ export default function Navbar({ mode, sections }: NavbarProps) {
     return (
         <nav className="flex justify-center mt-6 mb-6 sticky top-4 z-50 px-4">
             <div className="relative w-full max-w-6xl">
-                {/* Desktop Navigation */}
-                <div className="hidden md:flex items-center justify-center">
+                {/* Desktop Navigation - Change from md: to custom breakpoint */}
+                <div className="hidden min-[815px]:flex items-center justify-center">
                     <div className="flex items-center border border-slate-300 backdrop-blur-md shadow-sm rounded-full px-6 py-3 gap-6">
                         {/* Optional mode pill */}
                         {mode && (
                             <div className={`
                                 px-3 py-1 rounded-full text-xs font-semibold uppercase
-                                ${mode === 'fullstack' 
-                                    ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300' 
+                                ${mode === 'fullstack'
+                                    ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300'
                                     : 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300'
                                 }
                             `}>
@@ -114,14 +114,14 @@ export default function Navbar({ mode, sections }: NavbarProps) {
                     </div>
                 </div>
 
-                {/* Mobile Navigation */}
-                <div className="md:hidden flex items-center justify-between">
+                {/* Mobile Navigation - Change from md: to custom breakpoint */}
+                <div className="flex min-[815px]:hidden items-center justify-between">
                     <div className="flex items-center border border-slate-300 backdrop-blur-md shadow-sm rounded-full px-2 py-2">
                         {mode && (
                             <div className={`
                                 px-2 py-1 rounded-full text-xs font-semibold uppercase mr-2
-                                ${mode === 'fullstack' 
-                                    ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300' 
+                                ${mode === 'fullstack'
+                                    ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300'
                                     : 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300'
                                 }
                             `}>
@@ -140,17 +140,17 @@ export default function Navbar({ mode, sections }: NavbarProps) {
                     </button>
                 </div>
 
-                {/* Mobile Menu Dropdown */}
+                {/* Mobile Menu Dropdown - Change from md: to custom breakpoint */}
                 {isMenuOpen && (
-                    <div className="absolute top-16 left-0 right-0 md:hidden">
+                    <div className="absolute top-16 left-0 right-0 min-[815px]:hidden">
                         <div className="border border-slate-300 backdrop-blur-md bg-white/90 dark:bg-slate-900/90 shadow-lg rounded-2xl py-2 px-2">
                             {sections.map((id) => (
                                 <Link
                                     key={id}
                                     href={`#${id}`}
                                     className={`block px-4 py-3 rounded-lg transition ${active === id
-                                            ? `bg-slate-100 dark:bg-slate-800 ${theme == "dark" ? "text-blue-400" : "text-pink-600"}`
-                                            : "hover:bg-slate-100 dark:hover:bg-slate-800"
+                                        ? `bg-slate-100 dark:bg-slate-800 ${theme == "dark" ? "text-blue-400" : "text-pink-600"}`
+                                        : "hover:bg-slate-100 dark:hover:bg-slate-800"
                                         }`}
                                     onClick={(e) => handleLinkClick(e, id)}
                                 >
