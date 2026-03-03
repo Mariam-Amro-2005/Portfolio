@@ -1,3 +1,4 @@
+import PageTransition from "@/components/ui/PageTransition";
 import "../globals.css";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
@@ -14,7 +15,9 @@ export default function RootLayout({
 }) {
     return (
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            {children}
+            <PageTransition>
+                {children}
+            </PageTransition>
         </ThemeProvider>
     );
 }

@@ -16,7 +16,11 @@ const sections = [
     "contact",
 ];
 
-export default function Navbar() {
+interface NavbarProps {
+    mode?: 'fullstack' | 'ai';  // Optional - just for display if you want
+}
+
+export default function Navbar({ mode }: NavbarProps) {
     const [active, setActive] = useState("");
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { theme } = useTheme();
@@ -37,7 +41,6 @@ export default function Navbar() {
                 ([entry]) => {
                     if (entry.isIntersecting) {
                         setActive(id);
-                        // Close mobile menu when navigating to a section
                         setIsMenuOpen(false);
                     }
                 },
@@ -51,10 +54,9 @@ export default function Navbar() {
         return () => observers.forEach((obs) => obs.disconnect());
     }, []);
 
-    // Close mobile menu when window is resized to desktop size
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth >= 768) { // md breakpoint
+            if (window.innerWidth >= 768) {
                 setIsMenuOpen(false);
             }
         };
@@ -85,9 +87,18 @@ export default function Navbar() {
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center justify-center">
                     <div className="flex items-center border border-slate-300 backdrop-blur-md shadow-sm rounded-full px-6 py-3 gap-6">
-                        {/* <div className="cursor-pointer hover:text-indigo-600 transition font-medium">
-                            Portfolio
-                        </div> */}
+                        {/* Optional: Show current mode pill */}
+                        {mode && (
+                            <div className={`
+                                px-3 py-1 rounded-full text-xs font-semibold uppercase
+                                ${mode === 'fullstack' 
+                                    ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300' 
+                                    : 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300'
+                                }
+                            `}>
+                                {mode === 'fullstack' ? 'Fullstack' : 'AI/ML'}
+                            </div>
+                        )}
 
                         {sections.map((id) => (
                             <Link
@@ -104,12 +115,20 @@ export default function Navbar() {
                     </div>
                 </div>
 
-                {/* Mobile Navigation */}
+                {/* Mobile Navigation - keep existing mobile code */}
                 <div className="md:hidden flex items-center justify-between">
                     <div className="flex items-center border border-slate-300 backdrop-blur-md shadow-sm rounded-full px-2 py-2">
-                        {/* <div className="cursor-pointer hover:text-indigo-600 transition font-medium mr-2">
-                            Portfolio
-                        </div> */}
+                        {mode && (
+                            <div className={`
+                                px-2 py-1 rounded-full text-xs font-semibold uppercase mr-2
+                                ${mode === 'fullstack' 
+                                    ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300' 
+                                    : 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300'
+                                }
+                            `}>
+                                {mode === 'fullstack' ? 'FS' : 'AI'}
+                            </div>
+                        )}
                         <ThemeToggle />
                     </div>
 
@@ -122,7 +141,7 @@ export default function Navbar() {
                     </button>
                 </div>
 
-                {/* Mobile Menu Dropdown */}
+                {/* Mobile Menu Dropdown - keep existing */}
                 {isMenuOpen && (
                     <div className="absolute top-16 left-0 right-0 md:hidden">
                         <div className="border border-slate-300 backdrop-blur-md bg-white/90 dark:bg-slate-900/90 shadow-lg rounded-2xl py-2 px-2">

@@ -1,10 +1,13 @@
-import "./globals.css";
 import type { Metadata } from "next";
-import { ThemeProvider } from "next-themes";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { Providers } from "./providers";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Mariam Seifeldin | Data Scientist & Machine Learning Engineer",
-  description: "Full stack developer portfolio",
+  title: "Mariam Seifeldin - Portfolio",
+  description: "Fullstack Developer & AI/ML Enthusiast",
 };
 
 export default function RootLayout({
@@ -14,10 +17,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="box-border">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
-        </ThemeProvider>
+      <body className={`${inter.className} antialiased`}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

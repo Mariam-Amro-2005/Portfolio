@@ -7,8 +7,12 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import Image from "next/image";
 import { HeroProps } from "@/lib/types";
+import ModeSwitcher from "@/components/ui/ModeSwitcher";
+interface ExtendedHeroProps extends HeroProps {
+    currentMode?: 'fullstack' | 'ai';
+}
 
-export default function Hero({ name="", typingWords=[""], location="", email="#" }: HeroProps) {
+export default function Hero({ name="", typingWords=[""], location="", email="#", currentMode = 'fullstack' }: ExtendedHeroProps) {
     const { theme } = useTheme();
 
     return (
@@ -34,6 +38,16 @@ export default function Hero({ name="", typingWords=[""], location="", email="#"
 
             {/* Foreground Content */}
             <div>
+                {/* Mode Switcher - Positioned at top */}
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="mb-8 flex justify-center"
+                >
+                    <ModeSwitcher currentMode={currentMode} />
+                </motion.div>
+                
                 <motion.h1
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}

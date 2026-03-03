@@ -19,9 +19,8 @@ interface PortfolioPageProps {
 export default function PortfolioPage({ data, mode }: PortfolioPageProps) {
     return (
         <main>
-            {/* <Navbar mode={mode} /> */}
-            <Navbar /> {/* Optional: pass mode for nav styling */}
-            <Hero {...data.hero} />
+            <Navbar mode={mode} />
+            <Hero {...data.hero} currentMode={mode} />
             <About {...data.about} />
             <Education {...data.education} />
             <Experience {...data.experience} />
