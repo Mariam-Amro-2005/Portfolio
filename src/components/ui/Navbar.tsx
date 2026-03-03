@@ -47,8 +47,8 @@ export default function Navbar({ mode, sections }: NavbarProps) {
 
     useEffect(() => {
         const handleResize = () => {
-            // Change from 768 to 815
-            if (window.innerWidth >= 815) {
+            // Change from 768 to 975
+            if (window.innerWidth >= 975) {
                 setIsMenuOpen(false);
             }
         };
@@ -84,7 +84,7 @@ export default function Navbar({ mode, sections }: NavbarProps) {
         <nav className="flex justify-center mt-6 mb-6 sticky top-4 z-50 px-4">
             <div className="relative w-full max-w-6xl">
                 {/* Desktop Navigation - Change from md: to custom breakpoint */}
-                <div className="hidden min-[815px]:flex items-center justify-center">
+                <div className="hidden min-[975px]:flex items-center justify-center">
                     <div className="flex items-center border border-slate-300 backdrop-blur-md shadow-sm rounded-full px-6 py-3 gap-6">
                         {/* Optional mode pill */}
                         {mode && (
@@ -115,7 +115,7 @@ export default function Navbar({ mode, sections }: NavbarProps) {
                 </div>
 
                 {/* Mobile Navigation - Change from md: to custom breakpoint */}
-                <div className="flex min-[815px]:hidden items-center justify-between">
+                <div className="flex min-[975px]:hidden items-center justify-between">
                     <div className="flex items-center border border-slate-300 backdrop-blur-md shadow-sm rounded-full px-2 py-2">
                         {mode && (
                             <div className={`
@@ -142,7 +142,7 @@ export default function Navbar({ mode, sections }: NavbarProps) {
 
                 {/* Mobile Menu Dropdown - Change from md: to custom breakpoint */}
                 {isMenuOpen && (
-                    <div className="absolute top-16 left-0 right-0 min-[815px]:hidden">
+                    <div className="absolute top-16 left-0 right-0 min-[975px]:hidden">
                         <div className="border border-slate-300 backdrop-blur-md bg-white/90 dark:bg-slate-900/90 shadow-lg rounded-2xl py-2 px-2">
                             {sections.map((id) => (
                                 <Link
