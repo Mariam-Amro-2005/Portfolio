@@ -1,23 +1,25 @@
-import PageTransition from "@/components/ui/PageTransition";
-import "../globals.css";
 import type { Metadata } from "next";
-import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
-    title: "Mariam Seifeldin | Full Stack and Software Developer",
-    description: "Full stack developer portfolio",
+    title: "Mariam Seifeldin | Full Stack & Software Developer",
+    description: "Full stack developer portfolio showcasing expertise in React, Next.js, Spring Boot, and modern web technologies.",
+    keywords: ["Full Stack Developer", "Software Engineer", "React", "Next.js", "Spring Boot", "TypeScript", "Web Development"],
+    authors: [{ name: "Mariam Seifeldin" }],
+    openGraph: {
+        title: "Mariam Seifeldin | Full Stack Developer",
+        description: "Explore full stack development projects and experience",
+        type: "website",
+    },
 };
 
-export default function RootLayout({
+export default function FullstackLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
     return (
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <PageTransition>
-                {children}
-            </PageTransition>
-        </ThemeProvider>
+        <>
+            {children}
+        </>
     );
 }
