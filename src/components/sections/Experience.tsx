@@ -22,7 +22,7 @@ export default function Experience(experience: ExperienceProps) {
                         Professional Experience
                     </h1>
 
-                    <h2 className="relative text-5xl sm:text-6xl font-semibold dark:text-white">Experience</h2>
+                    <h2 className={`relative text-5xl sm:text-6xl font-semibold ${theme == 'dark' ? 'text-white' : 'text-black'}`}>Experience</h2>
 
                     <div className="flex justify-center items-center gap-2">
                         <span className="inline-block w-15 h-1 bg-linear-to-r from-indigo-600 to-indigo-500"></span>
