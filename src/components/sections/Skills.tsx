@@ -14,12 +14,12 @@ export default function Skills(data: SkillsProps) {
                     <h1 className={`
                         absolute text-7xl md:text-8xl lg:text-[10rem] uppercase font-extrabold top-12.75 lg:-top-10 -z-10
                         ${theme === 'dark' ? 'text-white/5' : 'text-black/5'}
-                        transition-colors duration-300 
+                        transition-colors duration-300 text-wrap max-w-full break-all
                     `}>
                         Technical Skills
                     </h1>
 
-                    <h2 className="relative text-6xl font-semibold dark:text-white">Technical Skills</h2>
+                    <h2 className="relative text-5xl sm:text-6xl font-semibold dark:text-white">Technical Skills</h2>
 
                     <div className="flex justify-center items-center gap-2">
                         <span className="inline-block w-15 h-1 bg-linear-to-r from-indigo-600 to-indigo-500"></span>

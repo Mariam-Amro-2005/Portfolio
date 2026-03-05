@@ -16,9 +16,9 @@ export default function Hero({ name="", typingWords=[""], location="", email="#"
     const { theme } = useTheme();
 
     return (
-        <section id="home" className="h-[80vh] flex flex-col items-center justify-center text-center font-sans">
+        <section id="home" className="max-w-full sm:h-fit h-[80vh] flex flex-col items-center justify-center text-center font-sans mb-20">
             {/* Background Decoration Layer */}
-            <div className="absolute inset-0 -z-10">
+            <div className="absolute inset-0 -z-10 max-w-full overflow-hidden max-h-full">
 
                 {/* Large Circle */}
                 <motion.div
@@ -43,7 +43,7 @@ export default function Hero({ name="", typingWords=[""], location="", email="#"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="mb-8 flex justify-center"
+                    className="mt-4 mb-8 flex justify-center"
                 >
                     <ModeSwitcher currentMode={currentMode} />
                 </motion.div>
@@ -52,7 +52,7 @@ export default function Hero({ name="", typingWords=[""], location="", email="#"
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
-                    className="text-8xl font-bold mb-6"
+                    className="text-7xl sm:text-8xl font-bold mb-6"
                 >
                     {name.split(" ")[0]} <span className="bg-linear-to-r from-indigo-500 to-pink-600 text-transparent bg-clip-text">{name.split(" ")[1]}</span> {name.split(" ")[2]} {name.split(" ")[3]} {name.split(" ")[4]}
                 </motion.h1>

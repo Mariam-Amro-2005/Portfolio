@@ -8,7 +8,7 @@ export default function CertificationCard(data: CertificationItem) {
 
     return (
         <>
-            <div id="educationCard" className={`items-center md:items-start w-full border h-auto rounded-2xl p-6 
+            <div id="certificationCard" className={`items-center md:items-start w-full border h-auto rounded-2xl p-6 
                 flex flex-col md:flex-row justify-start gap-2.5 font-sans transition-all duration-300 
                 ease-out hover:-translate-y-3 hover:shadow-2xl transform
                 ${theme == "dark" ? "hover:border-blue-800 border-gray-700 text-white hover:text-blue-600 bg-linear-to-br from-gray-800/90 from-15% via-black/10 to-gray-900 to-90%" :

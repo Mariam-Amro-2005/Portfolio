@@ -11,7 +11,7 @@ export default function ProjectCard(data: ProjectItem) {
 
     return (
         <Container>
-            <div id="educationCard" className={`w-full border h-auto rounded-2xl p-6 
+            <div id="projectCard" className={`w-full border h-auto rounded-2xl p-6 
                 flex flex-col lg:flex-row-reverse justify-start gap-3.5 font-sans transition-all duration-300 
                 ease-out hover:-translate-y-3 hover:shadow-2xl transform
                 ${theme == "dark" ? "hover:border-blue-800 border-gray-700 text-white hover:text-blue-600 bg-linear-to-b md:bg-linear-to-br from-gray-800/90 from-35% md:from-15% via-black/10 to-gray-900 to-70% md:to-90%" :
@@ -60,7 +60,7 @@ export default function ProjectCard(data: ProjectItem) {
                         </p>
                     </div>
 
-                    <div className="flex flex-row gap-4">
+                    <div className="flex flex-col sm:flex-row gap-4">
                         <Link href={`${data.githubLink}`} target="_blank" rel="noopener noreferrer">
                             <div className={`flex w-fit bg-linear-to-tr text-nowrap ${theme == "dark" ? "border-indigo-700 shadow-gray-700 from-indigo-800 via-indigo-600 to-blue-950" : "border-gray-500 shadow-gray-400 from-indigo-600 to-purple-700 border"} rounded-full py-2 px-4 text-white text-md font-medium align-center justify-center items-center gap-2 shadow-sm hover:scale-105 transition duration-400 cursor-pointer`}>
                                 <div className="flex items-center">

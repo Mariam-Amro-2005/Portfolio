@@ -48,10 +48,10 @@ export default function PortfolioPage({ data, mode }: PortfolioPageProps) {
         : 'from-purple-500 to-blue-500';
 
     return (
-        <main className="relative">
+        <main className="relative pt-5">
             {/* Global Scroll Progress Bar */}
             <div
-                className={`fixed top-0 left-0 h-1 bg-linear-to-r ${progressGradient} transition-all duration-150 z-[100]`}
+                className={`max-w-full sticky top-0 left-0 h-1 bg-linear-to-r ${progressGradient} transition-all duration-150 z-[100]`}
                 style={{ width: `${scrollProgress}%` }}
             />
 
