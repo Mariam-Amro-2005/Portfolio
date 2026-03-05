@@ -3,26 +3,74 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { MapPin } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
+import ThemeToggle from '@/components/ui/ThemeToggle';
 
 export default function Home() {
+    const [mounted, setMounted] = useState(false);
+    const { theme } = useTheme();
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    // Determine if we're in dark mode
+    const isDark = theme === 'dark';
+
+    // Don't render theme-dependent styles until mounted
+    if (!mounted) {
+        return (
+            <main className="min-h-screen flex flex-col items-center justify-center text-center font-sans relative overflow-hidden">
+                <div className="relative z-10 max-w-5xl mx-auto px-4">
+                    <div className="mb-8 flex justify-center">
+                        <div className="mt-5 px-4 py-2 bg-white/10 backdrop-blur-sm border border-indigo-200/20 rounded-full">
+                            <span className="text-sm font-medium bg-linear-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
+                                👋 Welcome to My Portfolio
+                            </span>
+                        </div>
+                    </div>
+                    {/* Rest of fallback UI */}
+                </div>
+            </main>
+        );
+    }
+
     return (
         <main className="min-h-screen flex flex-col items-center justify-center text-center font-sans relative overflow-hidden">
+            {/* Theme Toggle - Positioned at top right */}
+            <div className="absolute top-6 right-6 z-20">
+                <ThemeToggle />
+            </div>
+
             {/* Background Decoration Layer */}
             <div className="absolute inset-0 -z-10">
                 <motion.div
                     animate={{ y: [0, -20, 0] }}
                     transition={{ duration: 8, repeat: Infinity }}
-                    className="absolute w-125 h-125 border border-indigo-400/50 dark:border-indigo-400 rounded-full top-10 left-10"
+                    className={`absolute w-125 h-125 border rounded-full top-10 left-10
+                        ${isDark 
+                            ? 'border-indigo-400' 
+                            : 'border-indigo-400/50'
+                        }`}
                 />
                 
                 <motion.div
                     animate={{ y: [0, -20, 0] }}
                     transition={{ duration: 8, repeat: Infinity, delay: 1 }}
-                    className="absolute w-62.5 h-62.5 border border-pink-500/50 dark:border-pink-500 rounded-full bottom-30 right-10"
+                    className={`absolute w-62.5 h-62.5 border rounded-full bottom-30 right-10
+                        ${isDark 
+                            ? 'border-pink-500' 
+                            : 'border-pink-500/50'
+                        }`}
                 />
                 
-                <div className="absolute top-20 right-20 w-64 h-64 bg-indigo-500/20 dark:bg-indigo-500/30 rounded-full blur-3xl" />
-                <div className="absolute bottom-20 left-20 w-64 h-64 bg-purple-500/20 dark:bg-purple-500/30 rounded-full blur-3xl" />
+                <div className={`absolute top-20 right-20 w-64 h-64 rounded-full blur-3xl
+                    ${isDark ? 'bg-indigo-500/30' : 'bg-indigo-500/20'}`} 
+                />
+                <div className={`absolute bottom-20 left-20 w-64 h-64 rounded-full blur-3xl
+                    ${isDark ? 'bg-purple-500/30' : 'bg-purple-500/20'}`} 
+                />
             </div>
 
             {/* Content with animations */}
@@ -33,7 +81,12 @@ export default function Home() {
                     transition={{ duration: 0.5 }}
                     className="mb-8 flex justify-center"
                 >
-                    <div className="mt-5 px-4 py-2 bg-white/10 dark:bg-white/5 backdrop-blur-sm border border-indigo-200/20 dark:border-indigo-800/30 rounded-full">
+                    <div className={`mt-5 px-4 py-2 backdrop-blur-sm border rounded-full
+                        ${isDark 
+                            ? 'bg-white/5 border-indigo-800/30' 
+                            : 'bg-white/10 border-indigo-200/20'
+                        }`}
+                    >
                         <span className="text-sm font-medium bg-linear-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
                             👋 Welcome to My Portfolio
                         </span>
@@ -48,28 +101,34 @@ export default function Home() {
                 >
                     Mariam{' '}
                     <span className="bg-linear-to-r from-indigo-500 to-pink-600 text-transparent bg-clip-text">
-                        Ahmed
+                        Amro
                     </span>
-                    {' '}Fathi Seifeldin
+                    {' '}Ahmed Fathi Seifeldin
                 </motion.h1>
 
                 <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4 }}
-                    className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto"
+                    className={`text-xl md:text-2xl mb-8 max-w-2xl mx-auto
+                        ${isDark ? 'text-gray-300' : 'text-gray-600'}`}
                 >
                     Exploring {' '}
-                    <span className="font-semibold text-indigo-600 dark:text-indigo-400">Fullstack Development</span>
+                    <span className={`font-semibold ${isDark ? 'text-indigo-400' : 'text-indigo-600'}`}>
+                        Fullstack Development
+                    </span>
                     {' '}&{' '}
-                    <span className="font-semibold text-purple-600 dark:text-purple-400">AI/Data Science</span>
+                    <span className={`font-semibold ${isDark ? 'text-purple-400' : 'text-purple-600'}`}>
+                        AI/Data Science
+                    </span>
                 </motion.p>
 
                 <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4 }}
-                    className="text-lg text-gray-500 dark:text-gray-400 mb-12 flex items-center justify-center gap-2"
+                    className={`text-lg mb-12 flex items-center justify-center gap-2
+                        ${isDark ? 'text-gray-400' : 'text-gray-500'}`}
                 >
                     <MapPin size={20} className="text-indigo-500" />
                     <span>Cairo, Egypt</span>
@@ -84,26 +143,44 @@ export default function Home() {
                     {/* Fullstack Card */}
                     <Link 
                         href="/fullstack" 
-                        className="group flex-1 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm border-2 border-indigo-200 dark:border-indigo-900/50 rounded-2xl p-8 hover:border-indigo-500 hover:shadow-xl hover:shadow-indigo-500/10 transition-all duration-300"
+                        className={`group flex-1 backdrop-blur-sm border-2 rounded-2xl p-8 transition-all duration-300
+                            ${isDark 
+                                ? 'bg-gray-900/50 border-indigo-900/50 hover:border-indigo-500 hover:shadow-indigo-500/10' 
+                                : 'bg-white/50 border-indigo-200 hover:border-indigo-500 hover:shadow-indigo-500/10'
+                            } hover:shadow-xl`}
                     >
                         <div className="flex flex-col items-center">
-                            <div className="w-20 h-20 bg-indigo-100 dark:bg-indigo-900/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                                <svg className="w-10 h-10 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className={`w-20 h-20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300
+                                ${isDark 
+                                    ? 'bg-indigo-900/30' 
+                                    : 'bg-indigo-100'
+                                }`}
+                            >
+                                <svg className={`w-10 h-10 ${isDark ? 'text-indigo-400' : 'text-indigo-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                                 </svg>
                             </div>
-                            <h2 className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 mb-3">Fullstack Development</h2>
-                            <p className="text-gray-600 dark:text-gray-300 text-center mb-6">
+                            <h2 className={`text-2xl font-bold mb-3 ${isDark ? 'text-indigo-400' : 'text-indigo-600'}`}>
+                                Fullstack Development
+                            </h2>
+                            <p className={`text-center mb-6 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
                                 React, Next.js, Spring Boot, TypeScript, and modern web technologies
                             </p>
                             <div className="flex flex-wrap gap-2 justify-center">
                                 {['React', 'Next.js', 'Spring Boot', 'TypeScript'].map(tech => (
-                                    <span key={tech} className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-sm rounded-full">
+                                    <span key={tech} className={`px-3 py-1 text-sm rounded-full
+                                        ${isDark 
+                                            ? 'bg-indigo-900/30 text-indigo-300' 
+                                            : 'bg-indigo-100 text-indigo-700'
+                                        }`}
+                                    >
                                         {tech}
                                     </span>
                                 ))}
                             </div>
-                            <div className="mt-8 text-indigo-600 dark:text-indigo-400 font-semibold group-hover:translate-x-1 transition-transform">
+                            <div className={`mt-8 font-semibold group-hover:translate-x-1 transition-transform
+                                ${isDark ? 'text-indigo-400' : 'text-indigo-600'}`}
+                            >
                                 Explore Fullstack →
                             </div>
                         </div>
@@ -112,26 +189,44 @@ export default function Home() {
                     {/* AI Card */}
                     <Link 
                         href="/ai" 
-                        className="group flex-1 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm border-2 border-purple-200 dark:border-purple-900/50 rounded-2xl p-8 hover:border-purple-500 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300"
+                        className={`group flex-1 backdrop-blur-sm border-2 rounded-2xl p-8 transition-all duration-300
+                            ${isDark 
+                                ? 'bg-gray-900/50 border-purple-900/50 hover:border-purple-500 hover:shadow-purple-500/10' 
+                                : 'bg-white/50 border-purple-200 hover:border-purple-500 hover:shadow-purple-500/10'
+                            } hover:shadow-xl`}
                     >
                         <div className="flex flex-col items-center">
-                            <div className="w-20 h-20 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                                <svg className="w-10 h-10 text-purple-600 dark:text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className={`w-20 h-20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300
+                                ${isDark 
+                                    ? 'bg-purple-900/30' 
+                                    : 'bg-purple-100'
+                                }`}
+                            >
+                                <svg className={`w-10 h-10 ${isDark ? 'text-purple-400' : 'text-purple-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                             </div>
-                            <h2 className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-3">AI & Data Science</h2>
-                            <p className="text-gray-600 dark:text-gray-300 text-center mb-6">
+                            <h2 className={`text-2xl font-bold mb-3 ${isDark ? 'text-purple-400' : 'text-purple-600'}`}>
+                                AI & Data Science
+                            </h2>
+                            <p className={`text-center mb-6 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
                                 Machine Learning, Deep Learning, PyTorch, Data Analysis, and Computer Vision
                             </p>
                             <div className="flex flex-wrap gap-2 justify-center">
                                 {['PyTorch', 'Scikit-learn', 'Python', 'TensorFlow'].map(tech => (
-                                    <span key={tech} className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm rounded-full">
+                                    <span key={tech} className={`px-3 py-1 text-sm rounded-full
+                                        ${isDark 
+                                            ? 'bg-purple-900/30 text-purple-300' 
+                                            : 'bg-purple-100 text-purple-700'
+                                        }`}
+                                    >
                                         {tech}
                                     </span>
                                 ))}
                             </div>
-                            <div className="mt-8 text-purple-600 dark:text-purple-400 font-semibold group-hover:translate-x-1 transition-transform">
+                            <div className={`mt-8 font-semibold group-hover:translate-x-1 transition-transform
+                                ${isDark ? 'text-purple-400' : 'text-purple-600'}`}
+                            >
                                 Explore AI/ML →
                             </div>
                         </div>
@@ -142,7 +237,7 @@ export default function Home() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.8 }}
-                    className="mt-8 mb-8 text-sm text-gray-500 dark:text-gray-400"
+                    className={`mt-8 mb-8 text-sm ${isDark ? 'text-gray-400' : 'text-gray-500'}`}
                 >
                     Choose your path to explore my work and experience
                 </motion.p>
