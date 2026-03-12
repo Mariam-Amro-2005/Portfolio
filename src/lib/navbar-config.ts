@@ -15,6 +15,12 @@ export const navbarConfig: NavbarItem[] = [
         shouldShow: () => true // Always show
     },
     {
+        id: "services",
+        label: "Services",
+        shouldShow: (data: PortfolioData) =>
+            data.services?.services?.length > 0
+    },
+    {
         id: "education",
         label: "Education",
         shouldShow: () => true // Always show
@@ -37,20 +43,21 @@ export const navbarConfig: NavbarItem[] = [
     {
         id: "achievements",
         label: "Achievements",
-        shouldShow: (data: PortfolioData) => 
+        shouldShow: (data: PortfolioData) =>
             data.achievements?.achievements?.length > 0
     },
     {
         id: "certifications",
         label: "Certifications",
-        shouldShow: (data: PortfolioData) => 
+        shouldShow: (data: PortfolioData) =>
             data.certifications?.certifications?.length > 0
     },
     {
         id: "contact",
         label: "Contact",
         shouldShow: () => true // Always show
-    }
+    },
+
 ];
 
 // Helper function to get visible sections

@@ -101,9 +101,23 @@ export interface ContactProps {
     github: string
 }
 
-// Add this new type for navbar sections
 export interface NavbarSection {
     id: string;
     label: string;
     showIf?: (data: PortfolioData) => boolean; // Optional condition
+}
+
+export interface ServiceItem {
+    title: string;
+    description: string;
+    icon: string; // Icon name or path
+    features: string[]; // Key features/technologies
+    price?: string; // Optional: if you want to show pricing
+    ctaText?: string; // Optional: custom CTA text
+    ctaLink?: string; // Optional: custom CTA link
+}
+
+export interface ServicesProps {
+    services: ServiceItem[];
+    mode?: 'fullstack' | 'ai'; 
 }

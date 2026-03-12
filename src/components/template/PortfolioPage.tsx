@@ -11,6 +11,7 @@ import Skills from "@/components/sections/Skills";
 import Achievements from "@/components/sections/Achievements";
 import Certifications from "@/components/sections/Certifications";
 import Contact from "@/components/sections/Contact";
+import Services from "@/components/sections/Services";
 import { PortfolioData } from "@/lib/data";
 import { getVisibleNavbarSections } from "@/lib/navbar-config";
 
@@ -64,8 +65,15 @@ export default function PortfolioPage({ data, mode }: PortfolioPageProps) {
             {/* Content Sections */}
             <Hero {...data.hero} currentMode={mode} />
             <About {...data.about} />
+            
+                        {/* Services Section */}
+                        {data.services?.services?.length > 0 && (
+                            <Services {...data.services} mode={mode} />
+                        )}
+                        
             <Education {...data.education} />
             <Experience {...data.experience} />
+            
             <Projects {...data.projects} />
             <Skills {...data.skills} />
 

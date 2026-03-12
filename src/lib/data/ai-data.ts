@@ -1,4 +1,4 @@
-import { AboutProps, AchievementItem, AchievementsProps, CertificationItem, CertificationsProps, ContactProps, EducationItem, EducationProps, ExperienceItem, ExperienceProps, HeroProps, ProjectItem, ProjectsProps, SkillsItem, SkillsProps } from "../types";
+import { AboutProps, AchievementItem, AchievementsProps, CertificationItem, CertificationsProps, ContactProps, EducationItem, EducationProps, ExperienceItem, ExperienceProps, HeroProps, ProjectItem, ProjectsProps, SkillsItem, SkillsProps, ServiceItem  } from "../types";
 import { PortfolioData } from './index';
 
 const Linkedin = "https://www.linkedin.com/in/mariam-seifeldin/";
@@ -312,6 +312,57 @@ export const languages = [
     "Arabic (Mother tongue)", "English (Fluent, IGCSE certified)"
 ]
 
+export const aiServices: ServiceItem[] = [
+    {
+        title: "Machine Learning",
+        description: "Custom ML models for prediction, classification, and pattern recognition.",
+        icon: "brain",
+        features: ["PyTorch", "Scikit-learn", "Model Training", "Hyperparameter Tuning", "Model Deployment"],
+        // ctaText: "View ML Projects",
+        // ctaLink: "#projects"
+    },
+    {
+        title: "Data Analysis & Visualization",
+        description: "Transform raw data into actionable insights with beautiful visualizations.",
+        icon: "data",
+        features: ["Python", "Pandas", "Matplotlib", "Seaborn", "Power BI", "Statistical Analysis"],
+        // ctaText: "See Analysis Work",
+        // ctaLink: "#projects"
+    },
+    {
+        title: "Computer Vision",
+        description: "Intelligent image and video analysis solutions for real-world applications.",
+        icon: "vision",
+        features: ["OpenCV", "ResNet", "Object Detection", "Image Classification", "Real-time Processing"],
+        // ctaText: "Explore Vision",
+        // ctaLink: "#projects"
+    },
+    {
+        title: "Deep Learning",
+        description: "Advanced neural network solutions for complex AI challenges.",
+        icon: "ai",
+        features: ["PyTorch", "TensorFlow", "CNNs", "RNNs", "Transfer Learning", "Model Optimization"],
+        // ctaText: "View Deep Learning",
+        // ctaLink: "#projects"
+    },
+    {
+        title: "NLP Solutions",
+        description: "Natural language processing for text analysis and understanding.",
+        icon: "brain",
+        features: ["Transformers", "Text Classification", "Sentiment Analysis", "BERT", "GPT Integration"],
+        // ctaText: "Learn More",
+        // ctaLink: "#contact"
+    },
+    {
+        title: "Data Engineering",
+        description: "Robust data pipelines and infrastructure for AI applications.",
+        icon: "database",
+        features: ["Data Pipelines", "ETL", "SQL", "Data Warehousing", "Big Data", "Efficient Queries"],
+        // ctaText: "Discuss Data Needs",
+        // ctaLink: "#contact"
+    }
+];
+
 export const aiData: PortfolioData = {
     hero: hero,
     about: about,
@@ -322,4 +373,7 @@ export const aiData: PortfolioData = {
     certifications: certificate,
     achievements: achievement,
     contact: contact,
+    services: {
+        services: aiServices
+    }
 };

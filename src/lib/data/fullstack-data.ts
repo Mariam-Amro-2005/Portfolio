@@ -1,4 +1,4 @@
-import { AboutProps, AchievementItem, AchievementsProps, CertificationsProps, ContactProps, EducationItem, EducationProps, ExperienceItem, ExperienceProps, HeroProps, ProjectItem, ProjectsProps, SkillsItem, SkillsProps } from "../types";
+import { AboutProps, AchievementItem, AchievementsProps, CertificationsProps, ContactProps, EducationItem, EducationProps, ExperienceItem, ExperienceProps, HeroProps, ProjectItem, ProjectsProps, SkillsItem, SkillsProps, ServiceItem } from "../types";
 import { PortfolioData } from './index';
 
 const Linkedin = "https://www.linkedin.com/in/mariam-seifeldin/";
@@ -273,6 +273,47 @@ export const languages = [
     "Arabic (Mother tongue)", "English (Fluent, IGCSE certified)"
 ]
 
+
+
+export const fullstackServices: ServiceItem[] = [
+    {
+        title: "Frontend Development",
+        description: "Responsive, interactive user interfaces built with modern React and Next.js.",
+        icon: "web",
+        features: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Responsive Design", "Figma to Code"],
+    },
+    {
+        title: "Backend Development",
+        description: "Scalable server-side applications with Spring Boot and RESTful APIs.",
+        icon: "backend",
+        features: ["Spring Boot", "Java", "REST APIs", "JWT Authentication", "MySQL", "Postman"],
+    },
+    {
+        title: "Full-Stack Applications",
+        description: "End-to-end web applications from database design to polished UI.",
+        icon: "code",
+        features: ["React + Spring Boot", "TypeScript", "JWT Auth", "State Management", "Database Design", "Vercel/Railway Deploy"],
+    },
+    {
+        title: "Database Design",
+        description: "Efficient database modeling and query optimization for web applications.",
+        icon: "database",
+        features: ["MySQL", "SQLite", "Database Normalization", "Complex Queries", "ERD Design", "Data Modeling"],
+    },
+    {
+        title: "API Development",
+        description: "Well-structured RESTful APIs with proper documentation and validation.",
+        icon: "cloud",
+        features: ["RESTful Design", "Spring Boot", "Request Validation", "Error Handling", "API Documentation", "Postman Testing"],
+    },
+    {
+        title: "Version Control & Collaboration",
+        description: "Professional git workflows and team collaboration practices.",
+        icon: "code",
+        features: ["Git", "GitHub", "Pull Requests", "Code Review", "Agile Methodologies", "Team Collaboration"],
+    }
+];
+
 export const fullstackData: PortfolioData = {
     hero: hero,
     about: about,
@@ -283,4 +324,8 @@ export const fullstackData: PortfolioData = {
     achievements: achievement,
     certifications: certificate,
     contact: contact,
+    services: {
+        services: fullstackServices,
+        mode: "fullstack"
+    }
 };

@@ -1,7 +1,8 @@
 import {
     HeroProps, AboutProps, EducationProps, ExperienceProps,
     ProjectsProps, SkillsProps, AchievementsProps, ContactProps,
-    CertificationsProps
+    CertificationsProps,
+    ServicesProps
 } from "../types";
 
 // Define the complete portfolio data structure
@@ -15,6 +16,7 @@ export interface PortfolioData {
     achievements: AchievementsProps;
     certifications: CertificationsProps;
     contact: ContactProps;
+    services: ServicesProps;
 }
 
 // Data loader that dynamically imports based on mode
