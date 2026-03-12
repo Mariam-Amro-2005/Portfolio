@@ -53,7 +53,7 @@ export default function Navbar({ mode, sections }: NavbarProps) {
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth >= 975) {
+            if (window.innerWidth >= 1060) {
                 setIsMenuOpen(false);
             }
         };
@@ -67,7 +67,7 @@ export default function Navbar({ mode, sections }: NavbarProps) {
         return (
             <nav className="flex justify-center mt-6 mb-6 sticky top-4 z-50 px-4">
                 <div className="relative w-full max-w-6xl">
-                    <div className="hidden min-[975px]:flex items-center justify-center">
+                    <div className="hidden min-[1060px]:flex items-center justify-center">
                         <div className="flex items-center border border-slate-300 backdrop-blur-md shadow-sm rounded-full px-6 py-3 gap-6">
                             <div className="w-32 h-8" /> {/* Placeholder */}
                         </div>
@@ -133,7 +133,7 @@ export default function Navbar({ mode, sections }: NavbarProps) {
         <nav className="flex justify-center mt-6 mb-6 sticky top-4 z-50 px-4">
             <div className="relative w-full max-w-6xl">
                 {/* Desktop Navigation */}
-                <div className="hidden min-[975px]:flex items-center justify-center">
+                <div className="hidden min-[1060px]:flex items-center justify-center">
                     <div className={`flex items-center border ${borderColor} backdrop-blur-md shadow-sm rounded-full px-6 py-3 gap-6`}>
                         {mode && (
                             <Link
@@ -176,7 +176,7 @@ export default function Navbar({ mode, sections }: NavbarProps) {
                 </div>
 
                 {/* Mobile Navigation */}
-                <div className="flex min-[975px]:hidden items-center justify-between">
+                <div className="flex min-[1060px]:hidden items-center justify-between">
                     <Link
                         href="#home"
                         onClick={(e) => handleLinkClick(e, 'home')}
@@ -219,7 +219,7 @@ export default function Navbar({ mode, sections }: NavbarProps) {
 
                 {/* Mobile Menu Dropdown */}
                 {isMenuOpen && (
-                    <div className="absolute top-16 left-0 right-0 min-[975px]:hidden">
+                    <div className="absolute top-16 left-0 right-0 min-[1060px]:hidden">
                         <div className={`border ${dropdownBg} backdrop-blur-md shadow-lg rounded-2xl py-2 px-2`}>
                             <Link
                                 href="#home"
