@@ -114,14 +114,14 @@ export default function Services({ services, mode = 'fullstack' }: ServicesProps
                                 {/* Decorative gradient orb */}
                                 <div className={`
                                     absolute -top-20 -right-20 w-40 h-40 rounded-full blur-3xl opacity-20
-                                    bg-gradient-to-br ${gradientFrom} ${gradientTo}
+                                    bg-linear-to-br ${gradientFrom} ${gradientTo}
                                     group-hover:opacity-30 transition-opacity duration-500
                                 `} />
 
                                 {/* Icon */}
                                 <div className={`
                                     w-16 h-16 rounded-xl flex items-center justify-center mb-6
-                                    bg-gradient-to-br ${gradientFrom} ${gradientTo} bg-opacity-10
+                                    bg-linear-to-br ${gradientFrom} ${gradientTo} bg-opacity-10
                                     ${isDark ? 'bg-opacity-20' : 'bg-opacity-10'}
                                 `}>
                                     <IconComponent className={`
@@ -237,7 +237,7 @@ export default function Services({ services, mode = 'fullstack' }: ServicesProps
                                 inline-flex items-center gap-2 px-8 py-4 rounded-full
                                 font-semibold text-white transition-all duration-1000
                                 hover:scale-105 hover:shadow-xl ease-in-out
-                                bg-gradient-to-r ${gradientFrom} ${gradientTo}
+                                bg-linear-to-r ${gradientFrom} ${gradientTo}
                                 hover:shadow-${primaryColor}-500/25
                             `}
                     >
