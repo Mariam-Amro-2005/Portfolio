@@ -24,13 +24,12 @@ export default function Home() {
             <main className="min-h-screen flex flex-col items-center justify-center text-center font-sans relative overflow-hidden">
                 <div className="relative z-10 max-w-5xl mx-auto px-4">
                     <div className="mb-8 flex justify-center">
-                        <div className="mt-5 px-4 py-2 bg-white/10 backdrop-blur-sm border border-indigo-200/20 rounded-full">
-                            <span className="text-sm font-medium bg-linear-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
+                        <div className="mt-5 px-6 py-3 bg-white/10 backdrop-blur-sm border border-indigo-200/20 rounded-full">
+                            <span className="text-base md:text-lg font-medium bg-linear-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
                                 👋 Welcome to My Portfolio
                             </span>
                         </div>
                     </div>
-                    {/* Rest of fallback UI */}
                 </div>
             </main>
         );
@@ -75,24 +74,26 @@ export default function Home() {
 
             {/* Content with animations */}
             <div className="relative z-10 max-w-5xl mx-auto px-4">
+                {/* Welcome Badge - Made larger */}
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     className="mb-8 flex justify-center"
                 >
-                    <div className={`mt-5 px-4 py-2 backdrop-blur-sm border rounded-full
+                    <div className={`mt-5 px-6 py-3 backdrop-blur-sm border rounded-full
                         ${isDark 
                             ? 'bg-white/5 border-indigo-800/30' 
                             : 'bg-white/10 border-indigo-200/20'
                         }`}
                     >
-                        <span className="text-sm font-medium bg-linear-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
+                        <span className="text-base md:text-lg font-medium bg-linear-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
                             👋 Welcome to My Portfolio
                         </span>
                     </div>
                 </motion.div>
 
+                {/* Name */}
                 <motion.h1
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -106,23 +107,28 @@ export default function Home() {
                     {' '}Ahmed Fathi Seifeldin
                 </motion.h1>
 
-                <motion.p
+                {/* Updated CTA Line - More compelling and explains the dual portfolios */}
+                <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.4 }}
-                    className={`text-xl md:text-2xl mb-8 max-w-2xl mx-auto
-                        ${isDark ? 'text-gray-300' : 'text-gray-600'}`}
+                    className="mb-8"
                 >
-                    Exploring {' '}
-                    <span className={`font-semibold ${isDark ? 'text-indigo-400' : 'text-indigo-600'}`}>
-                        Fullstack Development
-                    </span>
-                    {' '}&{' '}
-                    <span className={`font-semibold ${isDark ? 'text-purple-400' : 'text-purple-600'}`}>
-                        AI/Data Science
-                    </span>
-                </motion.p>
+                    <p className={`text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed
+                        ${isDark ? 'text-gray-300' : 'text-gray-600'}`}
+                    >
+                        <span className="font-light">I'm a developer with </span>
+                        <span className="relative inline-block">
+                            <span className={`font-bold ${isDark ? 'text-indigo-400' : 'text-indigo-600'}`}>
+                                two sides
+                            </span>
+                            <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-linear-to-r from-indigo-500 to-purple-500 rounded-full"></span>
+                        </span>
+                        <span className="font-light">. Choose the path that interests you:</span>
+                    </p>
+                </motion.div>
 
+                {/* Location */}
                 <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -134,6 +140,7 @@ export default function Home() {
                     <span>Cairo, Egypt</span>
                 </motion.p>
 
+                {/* Portfolio Cards */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -233,6 +240,7 @@ export default function Home() {
                     </Link>
                 </motion.div>
 
+                {/* Footer Note - Kept as is */}
                 <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
