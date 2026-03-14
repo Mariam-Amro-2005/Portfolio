@@ -48,27 +48,27 @@ export default function Home() {
                     animate={{ y: [0, -20, 0] }}
                     transition={{ duration: 8, repeat: Infinity }}
                     className={`absolute w-125 h-125 border rounded-full top-10 left-10
-                        ${isDark 
-                            ? 'border-indigo-400' 
+                        ${isDark
+                            ? 'border-indigo-400'
                             : 'border-indigo-400/50'
                         }`}
                 />
-                
+
                 <motion.div
                     animate={{ y: [0, -20, 0] }}
                     transition={{ duration: 8, repeat: Infinity, delay: 1 }}
                     className={`absolute w-62.5 h-62.5 border rounded-full bottom-30 right-10
-                        ${isDark 
-                            ? 'border-pink-500' 
+                        ${isDark
+                            ? 'border-pink-500'
                             : 'border-pink-500/50'
                         }`}
                 />
-                
+
                 <div className={`absolute top-20 right-20 w-64 h-64 rounded-full blur-3xl
-                    ${isDark ? 'bg-indigo-500/30' : 'bg-indigo-500/20'}`} 
+                    ${isDark ? 'bg-indigo-500/30' : 'bg-indigo-500/20'}`}
                 />
                 <div className={`absolute bottom-20 left-20 w-64 h-64 rounded-full blur-3xl
-                    ${isDark ? 'bg-purple-500/30' : 'bg-purple-500/20'}`} 
+                    ${isDark ? 'bg-purple-500/30' : 'bg-purple-500/20'}`}
                 />
             </div>
 
@@ -82,8 +82,8 @@ export default function Home() {
                     className="mb-8 flex justify-center"
                 >
                     <div className={`mt-5 px-6 py-3 backdrop-blur-sm border rounded-full
-                        ${isDark 
-                            ? 'bg-white/5 border-indigo-800/30' 
+                        ${isDark
+                            ? 'bg-white/5 border-indigo-800/30'
                             : 'bg-white/10 border-indigo-200/20'
                         }`}
                     >
@@ -114,17 +114,15 @@ export default function Home() {
                     transition={{ delay: 0.4 }}
                     className="mb-8"
                 >
-                    <p className={`text-xl md:text-2xl max-w-2xl mx-auto leading-relaxed
+                    <p className={`text-xl md:text-2xl max-w-2xl mx-auto
                         ${isDark ? 'text-gray-300' : 'text-gray-600'}`}
                     >
-                        <span className="font-light">I'm a developer with </span>
-                        <span className="relative inline-block">
-                            <span className={`font-bold ${isDark ? 'text-indigo-400' : 'text-indigo-600'}`}>
-                                two sides
-                            </span>
-                            <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-linear-to-r from-indigo-500 to-purple-500 rounded-full"></span>
-                        </span>
-                        <span className="font-light">. Choose the path that interests you:</span>
+                        <span className="font-light">Two portfolios. </span>
+                        <span className={`font-bold ${isDark ? 'text-indigo-400' : 'text-indigo-600'}`}>One developer</span>
+                        <span className="font-light">. </span>
+                        <span className="font-light">Your </span>
+                        <span className={`font-bold ${isDark ? 'text-purple-400' : 'text-purple-600'}`}>choice</span>
+                        <span className="font-light">:</span>
                     </p>
                 </motion.div>
 
@@ -148,18 +146,18 @@ export default function Home() {
                     className="flex flex-col md:flex-row gap-6 justify-center items-stretch max-w-3xl mx-auto"
                 >
                     {/* Fullstack Card */}
-                    <Link 
-                        href="/fullstack" 
+                    <Link
+                        href="/fullstack"
                         className={`group flex-1 backdrop-blur-sm border-2 rounded-2xl p-8 transition-all duration-300
-                            ${isDark 
-                                ? 'bg-gray-900/50 border-indigo-900/50 hover:border-indigo-500 hover:shadow-indigo-500/10' 
+                            ${isDark
+                                ? 'bg-gray-900/50 border-indigo-900/50 hover:border-indigo-500 hover:shadow-indigo-500/10'
                                 : 'bg-white/50 border-indigo-200 hover:border-indigo-500 hover:shadow-indigo-500/10'
                             } hover:shadow-xl`}
                     >
                         <div className="flex flex-col items-center">
                             <div className={`w-20 h-20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300
-                                ${isDark 
-                                    ? 'bg-indigo-900/30' 
+                                ${isDark
+                                    ? 'bg-indigo-900/30'
                                     : 'bg-indigo-100'
                                 }`}
                             >
@@ -176,8 +174,8 @@ export default function Home() {
                             <div className="flex flex-wrap gap-2 justify-center">
                                 {['React', 'Next.js', 'Spring Boot', 'TypeScript'].map(tech => (
                                     <span key={tech} className={`px-3 py-1 text-sm rounded-full
-                                        ${isDark 
-                                            ? 'bg-indigo-900/30 text-indigo-300' 
+                                        ${isDark
+                                            ? 'bg-indigo-900/30 text-indigo-300'
                                             : 'bg-indigo-100 text-indigo-700'
                                         }`}
                                     >
@@ -194,18 +192,18 @@ export default function Home() {
                     </Link>
 
                     {/* AI Card */}
-                    <Link 
-                        href="/ai" 
+                    <Link
+                        href="/ai"
                         className={`group flex-1 backdrop-blur-sm border-2 rounded-2xl p-8 transition-all duration-300
-                            ${isDark 
-                                ? 'bg-gray-900/50 border-purple-900/50 hover:border-purple-500 hover:shadow-purple-500/10' 
+                            ${isDark
+                                ? 'bg-gray-900/50 border-purple-900/50 hover:border-purple-500 hover:shadow-purple-500/10'
                                 : 'bg-white/50 border-purple-200 hover:border-purple-500 hover:shadow-purple-500/10'
                             } hover:shadow-xl`}
                     >
                         <div className="flex flex-col items-center">
                             <div className={`w-20 h-20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300
-                                ${isDark 
-                                    ? 'bg-purple-900/30' 
+                                ${isDark
+                                    ? 'bg-purple-900/30'
                                     : 'bg-purple-100'
                                 }`}
                             >
@@ -222,8 +220,8 @@ export default function Home() {
                             <div className="flex flex-wrap gap-2 justify-center">
                                 {['PyTorch', 'Scikit-learn', 'Python', 'TensorFlow'].map(tech => (
                                     <span key={tech} className={`px-3 py-1 text-sm rounded-full
-                                        ${isDark 
-                                            ? 'bg-purple-900/30 text-purple-300' 
+                                        ${isDark
+                                            ? 'bg-purple-900/30 text-purple-300'
                                             : 'bg-purple-100 text-purple-700'
                                         }`}
                                     >
