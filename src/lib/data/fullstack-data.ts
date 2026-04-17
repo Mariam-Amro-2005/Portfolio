@@ -24,7 +24,7 @@ export const hero: HeroProps = {
 export const about: AboutProps = {
     photo: "/profile1.jpeg",
     name: "Mariam",
-    bio: "I am a dedicated Computer Science student at Cairo University with hands-on experience in full-stack web development using React, SpringBoot, and Django. Skilled in building responsive applications and collaborating on real-world projects.Seeking a Software Engineering Internship or Junior Developer opportunity to apply my technical skills andcontribute to meaningful products.",
+    bio: "I am a dedicated Computer Science student at Cairo University with hands-on experience in full-stack web development using React, Spring Boot, and Django. Skilled in building responsive applications and collaborating on real-world projects. Seeking a Software Engineering Internship or Junior Developer opportunity to apply my technical skills and contribute to meaningful products.",
     linkedin: Linkedin,
     github: Github,
     email: Email,

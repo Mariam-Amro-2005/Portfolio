@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
-import { useTheme } from "next-themes";
 import { Menu, X } from "lucide-react";
 
 interface NavbarProps {
@@ -15,8 +14,7 @@ export default function Navbar({ mode, sections }: NavbarProps) {
     const [active, setActive] = useState("");
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
-    const { theme } = useTheme();
-
+    
     useEffect(() => {
         setMounted(true);
     }, []);
@@ -62,32 +60,13 @@ export default function Navbar({ mode, sections }: NavbarProps) {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    // Don't render theme-dependent styles until mounted
-    if (!mounted) {
-        return (
-            <nav className="flex justify-center mt-6 mb-6 sticky top-4 z-50 px-4">
-                <div className="relative w-full max-w-6xl">
-                    <div className="hidden min-[1060px]:flex items-center justify-center">
-                        <div className="flex items-center border border-slate-300 backdrop-blur-md shadow-sm rounded-full px-6 py-3 gap-6">
-                            <div className="w-32 h-8" /> {/* Placeholder */}
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        );
-    }
 
-    const isDark = theme === 'dark';
 
     const linkStyle = (id: string) => {
         const baseStyle = "transition hover:text-indigo-600 underline-offset-8 decoration-2";
         
         if (active === id) {
-            return `${baseStyle} underline decoration-2 underline-offset-2 ${
-                isDark 
-                    ? "decoration-blue-600 hover:decoration-indigo-400" 
-                    : "decoration-pink-600 hover:decoration-indigo-500"
-            }`;
+            return `${baseStyle} underline decoration-2 underline-offset-2 decoration-pink-600 hover:decoration-indigo-500 dark:decoration-blue-600 dark:hover:decoration-indigo-400`;
         }
         
         return `${baseStyle} no-underline hover:underline hover:decoration-indigo-500`;
@@ -121,20 +100,13 @@ export default function Navbar({ mode, sections }: NavbarProps) {
         return id.charAt(0).toUpperCase() + id.slice(1);
     };
 
-    // Border color based on theme
-    const borderColor = isDark ? 'border-slate-700' : 'border-slate-300';
-    
-    // Dropdown background based on theme
-    const dropdownBg = isDark 
-        ? 'bg-slate-900/90 border-slate-700' 
-        : 'bg-white/90 border-slate-300';
 
     return (
         <nav className="flex justify-center mt-6 mb-6 sticky top-4 z-50 px-4">
             <div className="relative w-full max-w-6xl">
                 {/* Desktop Navigation */}
                 <div className="hidden min-[1060px]:flex items-center justify-center">
-                    <div className={`flex items-center border ${borderColor} backdrop-blur-md shadow-sm rounded-full px-6 py-3 gap-6`}>
+                    <div className={`flex items-center border border-slate-300 dark:border-slate-700 backdrop-blur-md shadow-sm rounded-full px-6 py-3 gap-6`}>
                         {mode && (
                             <Link
                                 href="#home"
@@ -146,12 +118,8 @@ export default function Navbar({ mode, sections }: NavbarProps) {
                                     px-3 py-1 rounded-full text-xs font-semibold uppercase cursor-pointer
                                     transition-colors duration-200
                                     ${mode === 'fullstack'
-                                        ? isDark
-                                            ? 'bg-indigo-900/30 text-indigo-300 hover:bg-indigo-900/50'
-                                            : 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200'
-                                        : isDark
-                                            ? 'bg-purple-900/30 text-purple-300 hover:bg-purple-900/50'
-                                            : 'bg-purple-100 text-purple-700 hover:bg-purple-200'
+                                        ? 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200 dark:bg-indigo-900/30 dark:text-indigo-300 dark:hover:bg-indigo-900/50'
+                                        : 'bg-purple-100 text-purple-700 hover:bg-purple-200 dark:bg-purple-900/30 dark:text-purple-300 dark:hover:bg-purple-900/50'
                                     }
                                 `}>
                                     {mode === 'fullstack' ? 'Fullstack' : 'AI/ML'}
@@ -183,17 +151,13 @@ export default function Navbar({ mode, sections }: NavbarProps) {
                         onKeyDown={(e) => handleKeyDown(e, 'home')}
                         className="flex items-center"
                     >
-                        <div className={`flex items-center border ${borderColor} backdrop-blur-md shadow-sm rounded-full px-2 py-2`}>
+                        <div className={`flex items-center border border-slate-300 dark:border-slate-700 backdrop-blur-md shadow-sm rounded-full px-2 py-2`}>
                             {mode && (
                                 <div className={`
                                     px-2 py-1 rounded-full text-xs font-semibold uppercase mr-2
                                     ${mode === 'fullstack'
-                                        ? isDark
-                                            ? 'bg-indigo-900/30 text-indigo-300'
-                                            : 'bg-indigo-100 text-indigo-700'
-                                        : isDark
-                                            ? 'bg-purple-900/30 text-purple-300'
-                                            : 'bg-purple-100 text-purple-700'
+                                        ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300'
+                                        : 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300'
                                     }
                                 `}>
                                     {mode === 'fullstack' ? 'FS' : 'AI'}
@@ -205,11 +169,8 @@ export default function Navbar({ mode, sections }: NavbarProps) {
 
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className={`p-2 rounded-full border ${borderColor} backdrop-blur-md shadow-sm transition cursor-pointer
-                            ${isDark 
-                                ? 'hover:bg-slate-800' 
-                                : 'hover:bg-slate-100'
-                            }`}
+                        className={`p-2 rounded-full border border-slate-300 dark:border-slate-700 backdrop-blur-md shadow-sm transition cursor-pointer
+hover:bg-slate-100 dark:hover:bg-slate-800`}
                         aria-label="Toggle menu"
                         // aria-expanded={isMenuOpen}
                     >
@@ -220,17 +181,13 @@ export default function Navbar({ mode, sections }: NavbarProps) {
                 {/* Mobile Menu Dropdown */}
                 {isMenuOpen && (
                     <div className="absolute top-16 left-0 right-0 min-[1060px]:hidden">
-                        <div className={`border ${dropdownBg} backdrop-blur-md shadow-lg rounded-2xl py-2 px-2`}>
+                        <div className={`border bg-white/90 border-slate-300 dark:bg-slate-900/90 dark:border-slate-700 backdrop-blur-md shadow-lg rounded-2xl py-2 px-2`}>
                             <Link
                                 href="#home"
                                 className={`block px-4 py-3 rounded-lg transition ${
                                     active === 'home'
-                                        ? isDark
-                                            ? 'bg-slate-800 text-blue-400'
-                                            : 'bg-slate-100 text-pink-600'
-                                        : isDark
-                                            ? 'hover:bg-slate-800 text-gray-200'
-                                            : 'hover:bg-slate-100 text-gray-800'
+                                        ? 'bg-slate-100 text-pink-600 dark:bg-slate-800 dark:text-blue-400'
+                                        : 'hover:bg-slate-100 text-gray-800 dark:hover:bg-slate-800 dark:text-gray-200'
                                 }`}
                                 onClick={(e) => handleLinkClick(e, 'home')}
                                 onKeyDown={(e) => handleKeyDown(e, 'home')}
@@ -243,12 +200,8 @@ export default function Navbar({ mode, sections }: NavbarProps) {
                                     href={`#${id}`}
                                     className={`block px-4 py-3 rounded-lg transition ${
                                         active === id
-                                            ? isDark
-                                                ? 'bg-slate-800 text-blue-400'
-                                                : 'bg-slate-100 text-pink-600'
-                                            : isDark
-                                                ? 'hover:bg-slate-800 text-gray-200'
-                                                : 'hover:bg-slate-100 text-gray-800'
+                                            ? 'bg-slate-100 text-pink-600 dark:bg-slate-800 dark:text-blue-400'
+                                            : 'hover:bg-slate-100 text-gray-800 dark:hover:bg-slate-800 dark:text-gray-200'
                                     }`}
                                     onClick={(e) => handleLinkClick(e, id)}
                                     onKeyDown={(e) => handleKeyDown(e, id)}
