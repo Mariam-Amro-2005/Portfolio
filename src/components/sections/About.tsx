@@ -2,28 +2,26 @@
 import Container from "../ui/Container";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useTheme } from "next-themes";
 import Link from "next/link";
 import { AboutProps } from "@/lib/types";
 
 export default function About(
     { photo="", name = "", bio = "", linkedin = "#", github = "#", email = "#", phone = "#", resume = "#" }: AboutProps
 ) {
-    const { theme } = useTheme();
 
     return (
         <Container>
-            <section id="about" className="h-auto w-full relative px-10 py-20 flex flex-col items-center justify-around text-center font-sans">
+            <section id="about" className="h-auto w-full relative px-10 py-32 flex flex-col items-center justify-around text-center font-sans">
                 <div className="flex flex-col items-center justify-center mb-10">
                     <h1 className={`
                         absolute text-7xl md:text-8xl lg:text-[10rem] uppercase font-extrabold top-12.75 lg:-top-10 -z-10
-                        ${theme === 'dark' ? 'text-white/5' : 'text-black/5'}
+                        text-black/5 dark:text-white/5
                         transition-colors duration-300 text-wrap max-w-full break-all
                     `}>
                         About
                     </h1>
 
-                    <h2 className={`relative text-5xl sm:text-6xl font-semibold ${theme === 'dark' ? 'text-white' : 'text-black'}`}>About Me</h2>
+                    <h2 className={`relative text-5xl sm:text-6xl font-semibold text-black dark:text-white`}>About Me</h2>
 
                     <div className="flex justify-center items-center gap-2">
                         <span className="inline-block w-15 h-1 bg-linear-to-r from-indigo-600 to-indigo-500"></span>
@@ -42,7 +40,7 @@ export default function About(
                             <motion.div
                                 whileHover={{ scale: 1.1 }}
                                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                                className={`w-full h-full border-8  ${theme === 'dark' ? 'border-black' : 'border-white'} rounded-full overflow-hidden`}
+                                className={`w-full h-full border-8  border-white dark:border-black rounded-full overflow-hidden`}
                             >
                                 <Image
                                     src={`${photo}`}
@@ -70,7 +68,7 @@ export default function About(
                             </span>
                         </h2>
 
-                        <p className={`text-left ${theme === 'dark' ? 'text-gray-300' : 'text-gray-500'}
+                        <p className={`text-left text-gray-500 dark:text-gray-300
                             font-medium leading-relaxed text-lg text-balance
                             pr-5 transition-colors duration-300`}>
                             {bio}
@@ -80,63 +78,39 @@ export default function About(
                             <h1 className="text-start w-full text-xl font-bold">Connect with Me</h1>
                             <div className="flex flex-row w-full justify-between max-w-sm">
                                 <Link href={`${linkedin}`} target="_blank" rel="noopener noreferrer" >
-                                    <div className={`border border-gray-300 w-fit h-fit rounded-full hover:bg-linear-to-tr ${theme == "dark" ? " shadow-gray-600 hover:from-indigo-800 hover:via-indigo-600 hover:to-blue-950" : "shadow-gray-500 hover:from-purple-600 hover:via-violet-400 hover:to-indigo-500 hover:border-purple-600"} hover:border-gray-400 p-3 transition duration-300 hover:shadow-md`}>                                        
-                                        <Image
-                                            src={`${theme == "dark"? "/icons/icons8-linkedin-white-100.png" : "/icons/icons8-linkedin-100.png"}`}
-                                            alt="LinkedIn"
-                                            width={25}
-                                            height={25}
-                                            className="hover:scale-110">
-                                        </Image>
+                                    <div className="group border-2 border-gray-200 dark:border-gray-800 w-fit h-fit rounded-2xl hover:bg-linear-to-tr shadow-md hover:shadow-lg dark:shadow-gray-900/50 hover:from-purple-100 dark:hover:from-indigo-900/40 dark:hover:to-blue-900/40 p-3.5 transition duration-300">
+                                        <Image src="/icons/icons8-linkedin-100.png" alt="LinkedIn" width={25} height={25} className="block dark:hidden group-hover:scale-110 transition-transform duration-300" />
+                                        <Image src="/icons/icons8-linkedin-white-100.png" alt="LinkedIn" width={25} height={25} className="hidden dark:block group-hover:scale-110 transition-transform duration-300" />
                                     </div>
                                 </Link>
 
                                 <Link href={`${github}`} target="_blank" rel="noopener noreferrer">
-                                    <div className={`border border-gray-300 w-fit h-fit rounded-full hover:bg-linear-to-tr ${theme == "dark" ? " shadow-gray-600 hover:from-indigo-800 hover:via-indigo-600 hover:to-blue-950" : "shadow-gray-500 hover:from-purple-600 hover:via-violet-400 hover:to-indigo-500 hover:border-purple-600"} hover:border-gray-400 p-3 transition duration-300 hover:shadow-md`}>
-                                        <Image
-                                            src={`${theme == "dark" ? "/icons/icons8-github-white-100.png" : "/icons/icons8-github-100.png"}`}
-                                            alt="GitHub"
-                                            width={25}
-                                            height={25}
-                                            className="hover:scale-110">
-                                        </Image>
+                                    <div className="group border-2 border-gray-200 dark:border-gray-800 w-fit h-fit rounded-2xl hover:bg-linear-to-tr shadow-md hover:shadow-lg dark:shadow-gray-900/50 hover:from-purple-100 dark:hover:from-indigo-900/40 dark:hover:to-blue-900/40 p-3.5 transition duration-300">
+                                        <Image src="/icons/icons8-github-100.png" alt="GitHub" width={25} height={25} className="block dark:hidden group-hover:scale-110 transition-transform duration-300" />
+                                        <Image src="/icons/icons8-github-white-100.png" alt="GitHub" width={25} height={25} className="hidden dark:block group-hover:scale-110 transition-transform duration-300" />
                                     </div>
                                 </Link>
 
                                 <Link href={`mailto:${email}`} >
-                                    <div className={`border border-gray-300 w-fit h-fit rounded-full hover:bg-linear-to-tr ${theme == "dark" ? " shadow-gray-600 hover:from-indigo-800 hover:via-indigo-600 hover:to-blue-950" : "shadow-gray-500 hover:from-purple-600 hover:via-violet-400 hover:to-indigo-500 hover:border-purple-600"} hover:border-gray-400 p-3 transition duration-300 hover:shadow-md`}>
-                                        <Image
-                                            src={`${theme == "dark" ? "/icons/icons8-email-100 (1).png" : "/icons/icons8-email-100.png"}`}
-                                            alt="Email"
-                                            width={25}
-                                            height={25}
-                                            className="hover:scale-110">
-                                        </Image>
+                                    <div className="group border-2 border-gray-200 dark:border-gray-800 w-fit h-fit rounded-2xl hover:bg-linear-to-tr shadow-md hover:shadow-lg dark:shadow-gray-900/50 hover:from-purple-100 dark:hover:from-indigo-900/40 dark:hover:to-blue-900/40 p-3.5 transition duration-300">
+                                        <Image src="/icons/icons8-email-100.png" alt="Email" width={25} height={25} className="block dark:hidden group-hover:scale-110 transition-transform duration-300" />
+                                        <Image src="/icons/icons8-email-100 (1).png" alt="Email" width={25} height={25} className="hidden dark:block group-hover:scale-110 transition-transform duration-300" />
                                     </div>
                                 </Link>
 
                                 <Link href={`tel:${phone}`}>
-                                    <div className={`border border-gray-300 w-fit h-fit rounded-full hover:bg-linear-to-tr ${theme == "dark" ? " shadow-gray-600 hover:from-indigo-800 hover:via-indigo-600 hover:to-blue-950" : "shadow-gray-500 hover:from-purple-600 hover:via-violet-400 hover:to-indigo-500 hover:border-purple-600"} hover:border-gray-400 p-3 transition duration-300 hover:shadow-md`}>
-                                        <Image
-                                            src={`${theme == "dark" ? "/icons/icons8-phone-white-100.png" : "/icons/icons8-phone-100.png"}`}
-                                            alt="Phone Number"
-                                            width={25}
-                                            height={25}
-                                            className="hover:scale-110">
-                                        </Image>
+                                    <div className="group border-2 border-gray-200 dark:border-gray-800 w-fit h-fit rounded-2xl hover:bg-linear-to-tr shadow-md hover:shadow-lg dark:shadow-gray-900/50 hover:from-purple-100 dark:hover:from-indigo-900/40 dark:hover:to-blue-900/40 p-3.5 transition duration-300">
+                                        <Image src="/icons/icons8-phone-100.png" alt="Phone Number" width={25} height={25} className="block dark:hidden group-hover:scale-110 transition-transform duration-300" />
+                                        <Image src="/icons/icons8-phone-white-100.png" alt="Phone Number" width={25} height={25} className="hidden dark:block group-hover:scale-110 transition-transform duration-300" />
                                     </div>
                                 </Link>
                             </div>
 
                             <Link href={`${resume}`} target="_blank" rel="noopener noreferrer">
-                                <div className={`flex w-fit bg-linear-to-tr  border ${theme == "dark" ? "border-indigo-700 shadow-gray-700 from-indigo-800 via-indigo-600 to-blue-950": " shadow-gray-400 from-purple-600 via-violet-500 to-indigo-600 border-purple-500"} rounded-full py-2 px-4 text-white text-lg font-semibold align-center justify-center items-center gap-3 shadow-md hover:scale-105 transition duration-400 cursor-pointer`}>
-                                    <span className="flex flex-row">
-                                        <Image
-                                            src="/icons/icons8-download-100.png"
-                                            alt="Resume"
-                                            width={30}
-                                            height={30}>
-                                        </Image>
+                                <div className="group relative flex w-fit items-center justify-center gap-3 py-3 px-6 rounded-2xl font-semibold text-lg text-white shadow-xl backdrop-blur-md bg-linear-to-tr from-purple-600 via-violet-500 to-indigo-600 border border-purple-400/50 hover:border-purple-300 dark:from-indigo-900 dark:via-indigo-800 dark:to-blue-950 dark:border-indigo-500/50 dark:hover:border-indigo-400 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/30 overflow-hidden cursor-pointer">
+                                    <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                                    <span className="flex flex-row group-hover:-translate-y-1 group-hover:scale-110 transition-transform duration-300">
+                                        <Image src="/icons/icons8-download-100.png" alt="Resume" width={24} height={24} className="invert" />
                                     </span>
                                     Download Resume
                                 </div>

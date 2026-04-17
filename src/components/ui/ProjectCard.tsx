@@ -3,23 +3,20 @@ import Container from "./Container";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useTheme } from "next-themes";
 import { ProjectItem } from "@/lib/types";
 
 export default function ProjectCard(data: ProjectItem) {
-    const { theme } = useTheme();
 
     return (
         <Container>
             <div id="projectCard" className={`w-full border h-auto rounded-2xl p-6 
                 flex flex-col lg:flex-row-reverse justify-start gap-3.5 font-sans transition-all duration-300 
                 ease-out hover:-translate-y-3 hover:shadow-2xl transform
-                ${theme == "dark" ? "hover:border-blue-800 border-gray-700 text-white hover:text-blue-600 bg-linear-to-b md:bg-linear-to-br from-gray-800/90 from-35% md:from-15% via-black/10 to-gray-900 to-70% md:to-90%" :
-                    "border-gray-300 hover:bg-linear-to-br hover:from-indigo-300/50 hover:border-purple-400/50 hover:text-indigo-600"}`}>
+                border-gray-300 hover:bg-linear-to-br hover:from-indigo-300/50 hover:border-purple-400/50 hover:text-indigo-600 dark:hover:border-blue-800 dark:border-gray-700 dark:text-white dark:hover:text-blue-600 dark:bg-linear-to-b dark:md:bg-linear-to-br dark:from-gray-800/90 dark:from-35% dark:md:from-15% dark:via-black/10 dark:to-gray-900 dark:to-70% dark:md:to-90%`}>
 
                 <div id="dateTag" className="w-full lg:w-1/2 flex flex-col gap-3.5 items-end">
                     <p className={`w-fit text-start text-sm font-medium border rounded-full py-1.5 px-4 
-                        ${theme == "dark" ? "border-blue-900 bg-linear-to-b from-gray-800 to-blue-900/50 text-gray-300" : "border-purple-400/70 bg-purple-400/20 text-indigo-600"}`}>
+                        border-purple-400/70 bg-purple-400/20 text-indigo-600 dark:border-blue-900 dark:bg-linear-to-b dark:from-gray-800 dark:to-blue-900/50 dark:text-gray-300`}>
                         {data.startDate} - {data.endDate}
                     </p>
                     <Image
@@ -34,13 +31,13 @@ export default function ProjectCard(data: ProjectItem) {
 
                 <div id="headings" className="flex flex-col justify-start text-start gap-3.5 pl-2 w-full lg:w-1/2">
                     <div className="flex flex-col gap-1 items-start">
-                        <p className={`text-xl font-medium ${theme == "dark" ? "hover:text-blue-600" : "hover:text-indigo-600"}`}>
+                        <p className={`text-xl font-medium hover:text-indigo-600 dark:hover:text-blue-600`}>
                             {data.title || "N/A"}
                         </p>
                     </div>
 
                     <div>
-                        <p className={`max-w-full text-balance text-md font-normal ${theme == "dark" ? "text-gray-300" : "text-gray-500"}`}>
+                        <p className={`max-w-full text-balance text-md font-normal text-gray-500 dark:text-gray-300`}>
                             {data.description || "N/A"}
                         </p>
                     </div>
@@ -55,14 +52,14 @@ export default function ProjectCard(data: ProjectItem) {
                         <p>
                             {data.tech.map((tag, index) => (
                                 <span key={index} className={`inline-block text-md font-medium rounded-full py-1 px-3 mr-2 mb-2 border
-                                ${theme == "dark" ? "bg-blue-600/20 text-gray-300 border-blue-800" : "bg-purple-400/20 text-indigo-600/85 border-purple-400/70"}`}> {tag}</span>
+                                bg-purple-400/20 text-indigo-600/85 border-purple-400/70 dark:bg-blue-600/20 dark:text-gray-300 dark:border-blue-800`}> {tag}</span>
                             ))}
                         </p>
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4">
                         <Link href={`${data.githubLink}`} target="_blank" rel="noopener noreferrer">
-                            <div className={`flex w-fit bg-linear-to-tr text-nowrap ${theme == "dark" ? "border-indigo-700 shadow-gray-700 from-indigo-800 via-indigo-600 to-blue-950" : "border-gray-500 shadow-gray-400 from-indigo-600 to-purple-700 border"} rounded-full py-2 px-4 text-white text-md font-medium align-center justify-center items-center gap-2 shadow-sm hover:scale-105 transition duration-400 cursor-pointer`}>
+                            <div className={`flex w-fit bg-linear-to-tr text-nowrap border border-gray-500 shadow-gray-400 from-indigo-600 to-purple-700 dark:border-indigo-700 dark:shadow-gray-700 dark:from-indigo-800 dark:via-indigo-600 dark:to-blue-950 rounded-full py-2 px-4 text-white text-md font-medium align-center justify-center items-center gap-2 shadow-sm hover:scale-105 transition duration-400 cursor-pointer`}>
                                 <div className="flex items-center">
                                     View on GitHub
                                 </div>
@@ -82,7 +79,7 @@ export default function ProjectCard(data: ProjectItem) {
                         {
                             data.liveLink && (
                                 <Link href={`${data.liveLink}`} target="_blank" rel="noopener noreferrer">
-                                    <div className={`flex w-fit bg-linear-to-tr text-nowrap ${theme == "dark" ? "border-indigo-700 shadow-gray-700 from-indigo-800 via-indigo-600 to-blue-950 border" : "border-gray-500 shadow-gray-400 from-indigo-600 to-purple-700 border"} rounded-full py-2 px-4 text-white text-md font-medium align-center justify-center items-center gap-2 shadow-sm hover:scale-105 transition duration-400 cursor-pointer`}>
+                                    <div className={`flex w-fit bg-linear-to-tr text-nowrap border border-gray-500 shadow-gray-400 from-indigo-600 to-purple-700 dark:border-indigo-700 dark:shadow-gray-700 dark:from-indigo-800 dark:via-indigo-600 dark:to-blue-950 rounded-full py-2 px-4 text-white text-md font-medium align-center justify-center items-center gap-2 shadow-sm hover:scale-105 transition duration-400 cursor-pointer`}>
                                         <div className="flex items-center">
                                             View Live
                                         </div>

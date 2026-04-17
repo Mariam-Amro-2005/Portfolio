@@ -41,7 +41,7 @@ export default function Services({ services, mode = 'fullstack' }: ServicesProps
     if (!mounted) {
         return (
             <Container>
-                <section id="services" className="relative w-full h-auto py-20 flex flex-col items-center justify-center text-center font-sans">
+                <section id="services" className="relative w-full h-auto py-32 flex flex-col items-center justify-center text-center font-sans">
                     <div className="h-96" /> {/* Placeholder */}
                 </section>
             </Container>
@@ -58,7 +58,7 @@ export default function Services({ services, mode = 'fullstack' }: ServicesProps
 
     return (
         <Container>
-            <section id="services" className="relative w-full h-auto py-20 flex flex-col items-center justify-center text-center font-sans">
+            <section id="services" className="relative w-full h-auto py-32 flex flex-col items-center justify-center text-center font-sans">
                 {/* Section Header */}
                 <div className="flex flex-col w-full items-center justify-center mb-10">
                     <h1 className={`

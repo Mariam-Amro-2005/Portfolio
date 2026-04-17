@@ -7,11 +7,11 @@ export default function Testimonials() {
     
     return (
         <Container>
-            <section id="testimonials" className="relative w-full h-auto py-20 flex flex-col items-center justify-center text-center font-sans">
+            <section id="testimonials" className="relative w-full h-auto py-32 flex flex-col items-center justify-center text-center font-sans">
                 <div className="flex flex-col w-full items-center justify-center mb-10">
                     <h1 className={`
                         absolute uppercase font-extrabold top-12.75 lg:-top-10 -z-10
-                        ${theme === 'dark' ? 'text-white/5' : 'text-black/5'}
+                        text-black/5 dark:text-white/5
                         transition-colors duration-300 width-full max-w-full break-all
                         text-7xl md:text-8xl lg:text-[10rem]
                     `}>
