@@ -1,13 +1,12 @@
 "use client";
 import Container from "../ui/Container";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { useTheme } from "next-themes";
 import EducationCard from "../ui/EducationCard";
 import { EducationProps } from "@/lib/types";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { ui, t } from "@/lib/i18n/translations";
 
 export default function Education(educationData: EducationProps) {
-    const { theme } = useTheme();
+    const { lang } = useLanguage();
     const totalItems = educationData.educations.length;
     return (
         <Container>
@@ -19,10 +18,10 @@ export default function Education(educationData: EducationProps) {
                         transition-colors duration-300 text-wrap max-w-full overflow-hidden
                         text-7xl md:text-8xl lg:text-[10rem] break-all
                     `}>
-                        Education
+                        {t(ui.watermark.education, lang)}
                     </h1>
 
-                    <h2 className={`relative text-5xl sm:text-6xl font-semibold text-black dark:text-white`}>Education</h2>
+                    <h2 className={`relative text-5xl sm:text-6xl font-semibold text-black dark:text-white`}>{t(ui.heading.education, lang)}</h2>
 
                     <div className="flex justify-center items-center gap-2">
                         <span className="inline-block w-15 h-1 bg-linear-to-r from-indigo-600 to-indigo-500"></span>

@@ -1,9 +1,12 @@
 "use client";
 import Container from "../ui/Container";
 import { SkillsProps } from "@/lib/types";
-import Image from "next/image"
+import Image from "next/image";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { ui, t } from "@/lib/i18n/translations";
 
 export default function Skills(data: SkillsProps) {
+    const { lang } = useLanguage();
 
     return (
         <Container>
@@ -14,10 +17,10 @@ export default function Skills(data: SkillsProps) {
                         text-black/5 dark:text-white/5
                         transition-colors duration-300 text-wrap max-w-full break-all
                     `}>
-                        Technical Skills
+                        {t(ui.watermark.skills, lang)}
                     </h1>
 
-                    <h2 className={`relative text-5xl sm:text-6xl font-semibold text-black dark:text-white`}>Technical Skills</h2>
+                    <h2 className={`relative text-5xl sm:text-6xl font-semibold text-black dark:text-white`}>{t(ui.heading.skills, lang)}</h2>
 
                     <div className="flex justify-center items-center gap-2">
                         <span className="inline-block w-15 h-1 bg-linear-to-r from-indigo-600 to-indigo-500"></span>
@@ -26,7 +29,7 @@ export default function Skills(data: SkillsProps) {
                     </div>
 
                     <div className="uppercase text-gray-500 dark:text-gray-400 text-sm font-medium">
-                        I constantly strive to improve
+                        {t(ui.subtitle.skillsCallout, lang)}
                     </div>
                 </div>
 
@@ -42,7 +45,7 @@ export default function Skills(data: SkillsProps) {
                                         height={20}
                                     />
                                 </div>
-                                <h3 className={`text-lg font-medium text-black dark:text-gray-300`}> {skill.category} </h3>
+                                <h3 className={`text-lg font-medium text-black dark:text-gray-300`}>{skill.category[lang]}</h3>
                             </div>
                             <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full list-none mt-2">
                                 {skill.skills.map((item, itemIndex) => (
@@ -53,8 +56,7 @@ export default function Skills(data: SkillsProps) {
                                 ))}
                             </ul>
                         </div>
-                    ))
-                    }
+                    ))}
                 </div>
             </section>
         </Container>

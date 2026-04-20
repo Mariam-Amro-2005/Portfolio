@@ -3,15 +3,26 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { MapPin } from 'lucide-react';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
 import ThemeToggle from '@/components/ui/ThemeToggle';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
+import { ui, t } from '@/lib/i18n/translations';
+import { LocalizedString } from '@/lib/types';
 
-export default function Home() {
+export default function Home({ name={ en: "Mariam Amro Ahmed Fathi Seifeldin", ar: "مريم عمرو أحمد فتحي سيف الدين" } }: { name: LocalizedString }) {
+    const { lang, setLang } = useLanguage();
+
     return (
         <main className="min-h-screen flex flex-col items-center justify-center text-center font-sans relative overflow-hidden">
-            {/* Theme Toggle - Positioned at top right */}
-            <div className="absolute top-6 right-6 z-20">
+            {/* Controls - Top right */}
+            <div className="absolute top-6 right-6 z-20 flex items-center gap-3">
+                <button
+                    onClick={() => setLang(lang === 'en' ? 'ar' : 'en')}
+                    className="flex items-center gap-1 px-3 py-1.5 rounded-full border border-slate-300 dark:border-slate-700 text-xs font-semibold uppercase tracking-wide hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer"
+                    aria-label="Toggle language"
+                    id="landing-language-toggle"
+                >
+                    {lang === 'en' ? 'AR' : 'EN'}
+                </button>
                 <ThemeToggle />
             </div>
 
@@ -35,7 +46,7 @@ export default function Home() {
 
             {/* Content with animations */}
             <div className="relative z-10 max-w-5xl mx-auto px-4">
-                {/* Welcome Badge - Made larger */}
+                {/* Welcome Badge */}
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -45,7 +56,7 @@ export default function Home() {
                     <div className="mt-5 px-6 py-3 backdrop-blur-sm border rounded-full bg-white/10 border-indigo-200/20 dark:bg-white/5 dark:border-indigo-800/30"
                     >
                         <span className="text-base md:text-lg font-medium bg-linear-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">
-                            👋 Welcome to My Portfolio
+                            {t(ui.landing.welcome, lang)}
                         </span>
                     </div>
                 </motion.div>
@@ -57,14 +68,15 @@ export default function Home() {
                     transition={{ duration: 0.7 }}
                     className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 px-4 leading-tight"
                 >
-                    Mariam{' '}
+                    {/* Mariam{' '}
                     <span className="bg-linear-to-r from-indigo-500 to-pink-600 text-transparent bg-clip-text">
                         Amro
                     </span>
-                    {' '}Ahmed Fathi Seifeldin
+                    {' '}Ahmed Fathi Seifeldin */}
+                    {name[lang].split(" ")[0]} <span className="bg-linear-to-r from-indigo-500 to-pink-600 text-transparent bg-clip-text">{name[lang].split(" ")[1]}</span> {name[lang].split(" ")[2]} {name[lang].split(" ")[3]} {name[lang].split(" ")[4]}
                 </motion.h1>
 
-                {/* Updated CTA Line - More compelling and explains the dual portfolios */}
+                {/* Updated CTA Line */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -73,12 +85,10 @@ export default function Home() {
                 >
                     <p className="text-xl md:text-2xl max-w-2xl mx-auto text-gray-600 dark:text-gray-300"
                     >
-                        <span className="font-light">Two portfolios. </span>
-                        <span className="font-bold text-indigo-600 dark:text-indigo-400">One developer</span>
+                        <span className="font-light">{t(ui.landing.twoPortfolios, lang)} </span>
+                        <span className="font-bold text-indigo-600 dark:text-indigo-400">{t(ui.landing.oneDeveloper, lang)}</span>
                         <span className="font-light">. </span>
-                        <span className="font-light">Your </span>
-                        <span className="font-bold text-purple-600 dark:text-purple-400">choice</span>
-                        <span className="font-light">:</span>
+                        <span className="font-light">{t(ui.landing.yourChoice, lang)}</span>
                     </p>
                 </motion.div>
 
@@ -113,10 +123,10 @@ export default function Home() {
                                 </svg>
                             </div>
                             <h2 className="text-2xl font-bold mb-3 text-indigo-600 dark:text-indigo-400">
-                                Fullstack Development
+                                {t(ui.landing.fullstackTitle, lang)}
                             </h2>
                             <p className="text-center mb-6 text-gray-600 dark:text-gray-300">
-                                React, Next.js, Spring Boot, TypeScript, and modern web technologies
+                                {t(ui.landing.fullstackDesc, lang)}
                             </p>
                             <div className="flex flex-wrap gap-2 justify-center">
                                 {['React', 'Next.js', 'Spring Boot', 'TypeScript'].map(tech => (
@@ -128,7 +138,7 @@ export default function Home() {
                             </div>
                             <div className="mt-8 font-semibold group-hover:translate-x-1 transition-transform text-indigo-600 dark:text-indigo-400"
                             >
-                                Explore Fullstack →
+                                {t(ui.btn.exploreFull, lang)}
                             </div>
                         </div>
                     </Link>
@@ -146,10 +156,10 @@ export default function Home() {
                                 </svg>
                             </div>
                             <h2 className="text-2xl font-bold mb-3 text-purple-600 dark:text-purple-400">
-                                AI & Data Science
+                                {t(ui.landing.aiTitle, lang)}
                             </h2>
                             <p className="text-center mb-6 text-gray-600 dark:text-gray-300">
-                                Machine Learning, Deep Learning, PyTorch, Data Analysis, and Computer Vision
+                                {t(ui.landing.aiDesc, lang)}
                             </p>
                             <div className="flex flex-wrap gap-2 justify-center">
                                 {['PyTorch', 'Scikit-learn', 'Python', 'TensorFlow'].map(tech => (
@@ -161,20 +171,20 @@ export default function Home() {
                             </div>
                             <div className="mt-8 font-semibold group-hover:translate-x-1 transition-transform text-purple-600 dark:text-purple-400"
                             >
-                                Explore AI/ML →
+                                {t(ui.btn.exploreAI, lang)}
                             </div>
                         </div>
                     </Link>
                 </motion.div>
 
-                {/* Footer Note - Kept as is */}
+                {/* Footer Note */}
                 <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.8 }}
                     className="mt-8 mb-8 text-sm text-gray-500 dark:text-gray-400"
                 >
-                    Choose your path to explore my work and experience
+                    {t(ui.landing.choosePath, lang)}
                 </motion.p>
             </div>
         </main>

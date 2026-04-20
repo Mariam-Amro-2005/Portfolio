@@ -8,12 +8,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { HeroProps } from "@/lib/types";
 import ModeSwitcher from "@/components/ui/ModeSwitcher";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { ui, t } from "@/lib/i18n/translations";
+
 interface ExtendedHeroProps extends HeroProps {
     currentMode?: 'fullstack' | 'ai';
 }
 
-export default function Hero({ name="", typingWords=[""], location="", email="#", currentMode = 'fullstack' }: ExtendedHeroProps) {
-    
+export default function Hero({ name={ en: "", ar: "" }, typingWords=[], location="", email="#", currentMode = 'fullstack' }: ExtendedHeroProps) {
+    const { lang } = useLanguage();
+
     return (
         <section id="home" className="max-w-full sm:h-fit h-[80vh] flex flex-col items-center justify-center text-center font-sans mb-20">
             {/* Background Decoration Layer */}
@@ -46,14 +50,14 @@ export default function Hero({ name="", typingWords=[""], location="", email="#"
                 >
                     <ModeSwitcher currentMode={currentMode} />
                 </motion.div>
-                
+
                 <motion.h1
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 px-4 leading-tight"
                 >
-                    {name.split(" ")[0]} <span className="bg-linear-to-r from-indigo-500 to-pink-600 text-transparent bg-clip-text">{name.split(" ")[1]}</span> {name.split(" ")[2]} {name.split(" ")[3]} {name.split(" ")[4]}
+                    {name[lang].split(" ")[0]} <span className="bg-linear-to-r from-indigo-500 to-pink-600 text-transparent bg-clip-text">{name[lang].split(" ")[1]}</span> {name[lang].split(" ")[2]} {name[lang].split(" ")[3]} {name[lang].split(" ")[4]}
                 </motion.h1>
 
                 <motion.p
@@ -64,7 +68,7 @@ export default function Hero({ name="", typingWords=[""], location="", email="#"
                 >
                     <span className="bg-linear-to-r from-indigo-500 to-pink-500 text-2xl text-transparent bg-clip-text">
                         <TypingText
-                            words={typingWords}
+                            words={typingWords.map(w => w[lang])}
                             speed={60} deleteSpeed={40} pause={2000}
                         />
                     </span>
@@ -90,7 +94,7 @@ export default function Hero({ name="", typingWords=[""], location="", email="#"
                                     height={30}>
                                 </Image>
                             </span>
-                            Let's Connect
+                            {t(ui.btn.letsConnect, lang)}
                         </Link>
                     </div>
                 </div>

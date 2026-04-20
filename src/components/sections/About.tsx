@@ -4,10 +4,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { AboutProps } from "@/lib/types";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { ui, t } from "@/lib/i18n/translations";
 
 export default function About(
-    { photo="", name = "", bio = "", linkedin = "#", github = "#", email = "#", phone = "#", resume = "#" }: AboutProps
+    { photo="", name = { en: "", ar: "" }, bio = { en: "", ar: "" }, linkedin = "#", github = "#", email = "#", phone = "#", resume = "#" }: AboutProps
 ) {
+    const { lang } = useLanguage();
 
     return (
         <Container>
@@ -18,10 +21,10 @@ export default function About(
                         text-black/5 dark:text-white/5
                         transition-colors duration-300 text-wrap max-w-full break-all
                     `}>
-                        About
+                        {t(ui.watermark.about, lang)}
                     </h1>
 
-                    <h2 className={`relative text-5xl sm:text-6xl font-semibold text-black dark:text-white`}>About Me</h2>
+                    <h2 className={`relative text-5xl sm:text-6xl font-semibold text-black dark:text-white`}>{t(ui.heading.aboutMe, lang)}</h2>
 
                     <div className="flex justify-center items-center gap-2">
                         <span className="inline-block w-15 h-1 bg-linear-to-r from-indigo-600 to-indigo-500"></span>
@@ -30,7 +33,7 @@ export default function About(
                     </div>
 
                     <div className="uppercase text-gray-500 dark:text-gray-400 text-sm font-medium">
-                        More about me
+                        {t(ui.subtitle.moreAboutMe, lang)}
                     </div>
                 </div>
 
@@ -61,21 +64,22 @@ export default function About(
                             after:-bottom-5 after:left-0 
                             after:w-full after:h-1.5 
                             after:bg-linear-to-r after:from-indigo-500 after:to-indigo-400 after:rounded-full">
-                                Hello!
-                            </span> I'm {""}
+                                {lang === 'ar' ? 'مرحباً!' : 'Hello!'}
+                            </span>{" "}
+                            {lang === 'ar' ? 'أنا' : "I'm"}{" "}
                             <span className="bg-linear-to-r from-indigo-500 to-indigo-600 text-transparent bg-clip-text">
-                                {name}
+                                {name[lang]}
                             </span>
                         </h2>
 
                         <p className={`text-left text-gray-500 dark:text-gray-300
                             font-medium leading-relaxed text-lg text-balance
                             pr-5 transition-colors duration-300`}>
-                            {bio}
+                            {bio[lang]}
                         </p>
 
                         <div className="flex flex-col justify-start gap-5 max-w-3/4 sm:max-w-full lg:max-w-2/3">
-                            <h1 className="text-start w-full text-xl font-bold">Connect with Me</h1>
+                            <h1 className="text-start w-full text-xl font-bold">{t(ui.about.connectWithMe, lang)}</h1>
                             <div className="flex flex-row w-full justify-between max-w-sm">
                                 <Link href={`${linkedin}`} target="_blank" rel="noopener noreferrer" >
                                     <div className="group border-2 border-gray-200 dark:border-gray-800 w-fit h-fit rounded-2xl hover:bg-linear-to-tr shadow-md hover:shadow-lg dark:shadow-gray-900/50 hover:from-purple-100 dark:hover:from-indigo-900/40 dark:hover:to-blue-900/40 p-3.5 transition duration-300">
@@ -110,9 +114,9 @@ export default function About(
                                 <div className="group relative flex w-fit items-center justify-center gap-3 py-3 px-6 rounded-2xl font-semibold text-lg text-white shadow-xl backdrop-blur-md bg-linear-to-tr from-purple-600 via-violet-500 to-indigo-600 border border-purple-400/50 hover:border-purple-300 dark:from-indigo-900 dark:via-indigo-800 dark:to-blue-950 dark:border-indigo-500/50 dark:hover:border-indigo-400 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/30 overflow-hidden cursor-pointer">
                                     <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
                                     <span className="flex flex-row group-hover:-translate-y-1 group-hover:scale-110 transition-transform duration-300">
-                                        <Image src="/icons/icons8-download-100.png" alt="Resume" width={24} height={24} className="invert" />
+                                        <Image src="/icons/icons8-download-white-100.png" alt="Resume" width={24} height={24}/>
                                     </span>
-                                    Download Resume
+                                    {t(ui.btn.downloadResume, lang)}
                                 </div>
                             </Link>
                         </div>

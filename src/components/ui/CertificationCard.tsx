@@ -1,10 +1,11 @@
 "use client";
 import Image from "next/image";
-import { useTheme } from "next-themes";
 import { CertificationItem } from "@/lib/types";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { ui, t } from "@/lib/i18n/translations";
 
 export default function CertificationCard(data: CertificationItem) {
-    const { theme } = useTheme();
+    const { lang } = useLanguage();
 
     return (
         <>
@@ -20,16 +21,16 @@ export default function CertificationCard(data: CertificationItem) {
                                 <div className="flex flex-row items-center gap-1">
                                     <Image
                                         src="/icons/icons8-certificate-100.png"
-                                        alt="Trophy Icon"
+                                        alt="Certificate Icon"
                                         width={20} height={20}
                                         className="rounded-full flex-0 object-contain"
                                     >
                                     </Image>
-                                    <p className={`uppercase text-indigo-600 dark:text-gray-300 text-sm`}>Certification</p>
+                                    <p className={`uppercase text-indigo-600 dark:text-gray-300 text-sm`}>{t(ui.card.certification, lang)}</p>
                                 </div>
 
                                 <p className={`text-xl font-medium hover:text-indigo-600 dark:hover:text-blue-600`}>
-                                    {data.title || "N/A"}
+                                    {data.title[lang] || "N/A"}
                                 </p>
 
                                 <h3 className={`text-lg font-normal max-w-3/4 hover:text-indigo-600 text-gray-500 dark:text-gray-400 dark:hover:text-blue-600`}>
@@ -49,7 +50,7 @@ export default function CertificationCard(data: CertificationItem) {
                     <div>
                         <ul className="list-disc list-inside marker:text-indigo-600 marker:text-lg text-gray-500">
                             {data.description?.map((desc, index) => (
-                                <li key={index} className={`mb-2 text-gray-500 dark:text-gray-300`}>{desc}</li>
+                                <li key={index} className={`mb-2 text-gray-500 dark:text-gray-300`}>{desc[lang]}</li>
                             ))}
                         </ul>
                     </div>

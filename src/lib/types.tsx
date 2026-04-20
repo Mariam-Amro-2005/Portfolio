@@ -1,123 +1,126 @@
 import { PortfolioData } from "./data";
 
+/** A piece of text that exists in both English and Arabic */
+export type LocalizedString = { en: string; ar: string };
+
 export interface HeroProps {
-    name: string;
-    typingWords: string[];
-    location: string;
+    name: LocalizedString;                   // proper name – not translated
+    typingWords: LocalizedString[]; // animated roles – translated
+    location: string;               // proper name – not translated
     email: string;
 }
 
 export interface AboutProps {
-    photo: string
-    name: string
-    bio: string
-    linkedin: string
-    github: string
-    email: string
-    phone: string
-    resume: string
+    photo: string;
+    name: LocalizedString;                   // proper name – not translated
+    bio: LocalizedString;
+    linkedin: string;
+    github: string;
+    email: string;
+    phone: string;
+    resume: string;
 }
 
 export interface EducationItem {
-    degree: string
-    institution?: string
-    location?: string
-    startDate: string
-    endDate: string
-    description: string[]
-    tags: string[]
+    degree: LocalizedString;
+    institution?: string;           // proper name of institution
+    location?: string;
+    startDate: string;
+    endDate: string;
+    description: LocalizedString[];
+    tags: string[];                 // tech / subject tags – proper nouns
 }
 export interface EducationProps {
-    educations: EducationItem[]
+    educations: EducationItem[];
 }
 
 export interface ExperienceItem {
-    title: string
-    company: string
-    location?: string
-    startDate: string
-    endDate: string
-    description: string[]
-    tags: string[]
+    title: LocalizedString;
+    company: string;                // proper name
+    location?: string;
+    startDate: string;
+    endDate: string;
+    description: LocalizedString[];
+    tags: string[];
 }
 
 export interface ExperienceProps {
-    experiences: ExperienceItem[]
+    experiences: ExperienceItem[];
 }
 
 export interface ProjectItem {
-    title: string
-    description: string
-    image?: string
-    tech: string[]
-    startDate?: string
-    endDate?: string
-    githubLink?: string
-    liveLink?: string
+    title: LocalizedString;
+    description: LocalizedString;
+    image?: string;
+    tech: string[];                 // tech names – proper nouns
+    startDate?: string;
+    endDate?: string;
+    githubLink?: string;
+    liveLink?: string;
 }
 
 export interface ProjectsProps {
-    projects: ProjectItem[]
+    projects: ProjectItem[];
 }
 
 export interface SkillsItem {
-    category: string
-    skills: string[]
+    category: LocalizedString;
+    skills: string[];               // skill names – proper nouns
 }
 
 export interface SkillsProps {
-    skills: SkillsItem[]
+    skills: SkillsItem[];
 }
 
 export interface CertificationItem {
-    title: string
-    issuer: string
-    date: string
-    description?: string[]
-    tags?: string[]
-    link?: string
+    title: LocalizedString;
+    issuer: string;                 // proper name
+    date: string;
+    description?: LocalizedString[];
+    tags?: string[];
+    link?: string;
 }
 
 export interface CertificationsProps {
-    certifications: CertificationItem[]
+    certifications: CertificationItem[];
 }
 
 export interface AchievementItem {
-    title: string
-    issuer: string
-    description: string[]
-    date: string
-    tags?: string[]
+    title: LocalizedString;
+    issuer: string;                 // proper name
+    description: LocalizedString[];
+    date: string;
+    tags?: string[];
 }
 
 export interface AchievementsProps {
-    achievements: AchievementItem[]
+    achievements: AchievementItem[];
 }
 
 export interface ContactProps {
-    email: string
-    phone: string
-    linkedin: string
-    github: string
+    email: string;
+    phone: string;
+    linkedin: string;
+    github: string;
 }
 
 export interface NavbarSection {
     id: string;
     label: string;
-    showIf?: (data: PortfolioData) => boolean; // Optional condition
+    showIf?: (data: PortfolioData) => boolean;
 }
 
 export interface ServiceItem {
-    title: string;
-    description: string;
-    icon: string; // Icon name or path
-    features: string[]; // Key features/technologies
-    price?: string; // Optional: if you want to show pricing
-    ctaText?: string; // Optional: custom CTA text
-    ctaLink?: string; // Optional: custom CTA link
+    title: LocalizedString;
+    description: LocalizedString;
+    icon: string;
+    features: string[];             // tech / keyword tags – proper nouns
+    price?: string;
+    ctaText?: LocalizedString;
+    ctaLink?: string;
 }
 
 export interface ServicesProps {
     services: ServiceItem[];
-    mode?: 'fullstack' | 'ai'; 
+    mode?: 'fullstack' | 'ai';
 }

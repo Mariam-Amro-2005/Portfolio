@@ -1,7 +1,7 @@
 "use client";
 
 import { ThemeProvider } from "next-themes";
-import { useEffect, useState } from "react";
+import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 
 export function Providers({ children }: { children: React.ReactNode }) {
     return (
@@ -11,7 +11,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
             enableSystem={true}
             disableTransitionOnChange
         >
-            {children}
+            <LanguageProvider>
+                {children}
+            </LanguageProvider>
         </ThemeProvider>
     );
 }

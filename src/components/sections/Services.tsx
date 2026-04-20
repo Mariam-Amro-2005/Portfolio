@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { ServicesProps } from "@/lib/types";
 import { useThemeStyles } from "@/lib/hooks/useThemeStyles";
 import Link from "next/link";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { ui, t } from "@/lib/i18n/translations";
 import {
     Code2,
     Globe,
@@ -37,6 +39,7 @@ const iconMap: Record<string, any> = {
 
 export default function Services({ services, mode = 'fullstack' }: ServicesProps) {
     const { mounted, isDark } = useThemeStyles();
+    const { lang } = useLanguage();
 
     if (!mounted) {
         return (
@@ -67,11 +70,11 @@ export default function Services({ services, mode = 'fullstack' }: ServicesProps
                         transition-colors duration-300 width-full max-w-full break-all
                         text-7xl md:text-8xl lg:text-[10rem]
                     `}>
-                        Services
+                        {t(ui.watermark.services, lang)}
                     </h1>
 
                     <h2 className={`relative text-6xl font-semibold ${isDark ? 'text-white' : 'text-black'}`}>
-                        What I Offer
+                        {t(ui.heading.whatIOffer, lang)}
                     </h2>
 
                     <div className="flex justify-center items-center gap-2">
@@ -82,8 +85,8 @@ export default function Services({ services, mode = 'fullstack' }: ServicesProps
 
                     <p className={`mt-4 max-w-2xl text-center ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
                         {mode === 'fullstack'
-                            ? 'Comprehensive full-stack development services to bring your ideas to life'
-                            : 'Cutting-edge AI and data science solutions for modern business challenges'
+                            ? t(ui.subtitle.servicesFS, lang)
+                            : t(ui.subtitle.servicesAI, lang)
                         }
                     </p>
                 </div>
@@ -140,7 +143,7 @@ export default function Services({ services, mode = 'fullstack' }: ServicesProps
                                     text-2xl font-bold mb-3 text-left
                                     ${isDark ? 'text-white' : 'text-gray-900'}
                                 `}>
-                                    {service.title}
+                                    {service.title[lang]}
                                 </h3>
 
                                 {/* Description */}
@@ -148,7 +151,7 @@ export default function Services({ services, mode = 'fullstack' }: ServicesProps
                                     text-left mb-6 leading-relaxed
                                     ${isDark ? 'text-gray-300' : 'text-gray-600'}
                                 `}>
-                                    {service.description}
+                                    {service.description[lang]}
                                 </p>
 
                                 {/* Features/Tags */}
@@ -176,7 +179,7 @@ export default function Services({ services, mode = 'fullstack' }: ServicesProps
                                             px-3 py-1 text-xs rounded-full
                                             ${isDark ? 'bg-gray-800 text-gray-300' : 'bg-gray-100 text-gray-600'}
                                         `}>
-                                            +{service.features.length - 4} more
+                                            +{service.features.length - 4} {t(ui.btn.more, lang)}
                                         </span>
                                     )}
                                 </div>
@@ -212,7 +215,7 @@ export default function Services({ services, mode = 'fullstack' }: ServicesProps
                                             }
                                         `}
                                     >
-                                        {service.ctaText || 'Learn More'}
+                                        {service.ctaText ? service.ctaText[lang] : 'Learn More'}
                                         <span className="text-lg">→</span>
                                     </Link>
                                 )}
@@ -229,7 +232,7 @@ export default function Services({ services, mode = 'fullstack' }: ServicesProps
                     className="mt-12 text-center"
                 >
                     <p className={`text-lg mb-4 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                        Interested in working together?
+                        {t(ui.subtitle.interestedWorking, lang)}
                     </p>
                     <Link
                         href="#contact"
@@ -241,7 +244,7 @@ export default function Services({ services, mode = 'fullstack' }: ServicesProps
                                 hover:shadow-${primaryColor}-500/25
                             `}
                     >
-                        Let's Discuss Your Project
+                        {t(ui.btn.discussProject, lang)}
                         <span className="text-xl">→</span>
                     </Link>
                 </motion.div>

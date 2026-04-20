@@ -1,8 +1,11 @@
 "use client";
 import Image from "next/image";
 import { ExperienceItem } from "@/lib/types";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { ui, t } from "@/lib/i18n/translations";
 
-export default function EducationCard(data: ExperienceItem) {
+export default function ExperienceCard(data: ExperienceItem) {
+    const { lang } = useLanguage();
 
     return (
         <>
@@ -11,7 +14,7 @@ export default function EducationCard(data: ExperienceItem) {
                 ease-out hover:-translate-y-3 hover:shadow-2xl transform
                 border-gray-300 hover:bg-linear-to-br hover:from-indigo-300/50 hover:border-purple-400/50 hover:text-indigo-600 dark:hover:border-blue-800 dark:border-gray-700 dark:text-white dark:hover:text-blue-600 dark:bg-linear-to-br dark:from-gray-800/90 dark:from-15% dark:via-black/10 dark:to-gray-900 dark:to-90%`}>
                 <div id="dateTag" className="w-full md:w-auto flex flex-col gap-1.5 items-center">
-                    <p className={`w-full md:w-fit md:text-start text-sm  font-medium border rounded-full py-1.5 px-4 text-nowrap
+                    <p className={`w-full md:w-fit md:text-start text-sm font-medium border rounded-full py-1.5 px-4 text-nowrap
                         border-purple-400/70 bg-purple-400/20 text-indigo-600/85 dark:border-blue-900 dark:bg-linear-to-b dark:from-gray-800 dark:to-blue-900/50 dark:text-gray-300`}>
                         {data.startDate} - {data.endDate}
                     </p>
@@ -29,10 +32,10 @@ export default function EducationCard(data: ExperienceItem) {
                                     className="rounded-full flex-0 object-contain"
                                 >
                                 </Image>
-                                <p className={`uppercase text-indigo-600 dark:text-gray-300 text-sm`}>Experience</p>
+                                <p className={`uppercase text-indigo-600 dark:text-gray-300 text-sm`}>{t(ui.card.experience, lang)}</p>
                             </div>
                             <p className={`text-xl font-medium hover:text-indigo-600 dark:hover:text-blue-600`}>
-                                {data.title || "N/A"}
+                                {data.title[lang] || "N/A"}
                             </p>
                         </div>
 
@@ -50,7 +53,7 @@ export default function EducationCard(data: ExperienceItem) {
                     <div>
                         <ul className="list-disc list-inside marker:text-indigo-600 marker:text-lg text-gray-500">
                             {data.description.map((desc, index) => (
-                                <li key={index} className={`mb-2 text-gray-500 dark:text-gray-300`}>{desc}</li>
+                                <li key={index} className={`mb-2 text-gray-500 dark:text-gray-300`}>{desc[lang]}</li>
                             ))}
                         </ul>
                     </div>

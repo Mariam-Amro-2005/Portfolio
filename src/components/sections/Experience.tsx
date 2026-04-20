@@ -1,13 +1,12 @@
 "use client";
 import Container from "../ui/Container";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { useTheme } from "next-themes";
 import { ExperienceProps } from "@/lib/types";
 import ExperienceCard from "../ui/ExperienceCard";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { ui, t } from "@/lib/i18n/translations";
 
 export default function Experience(experience: ExperienceProps) {
-    const { theme } = useTheme();
+    const { lang } = useLanguage();
 
     return (
         <Container>
@@ -19,10 +18,10 @@ export default function Experience(experience: ExperienceProps) {
                         transition-colors duration-300 text-wrap max-w-full break-all
                         text-7xl md:text-8xl lg:text-[10rem]
                     `}>
-                        Professional Experience
+                        {t(ui.watermark.experience, lang)}
                     </h1>
 
-                    <h2 className={`relative text-5xl sm:text-6xl font-semibold text-black dark:text-white`}>Experience</h2>
+                    <h2 className={`relative text-5xl sm:text-6xl font-semibold text-black dark:text-white`}>{t(ui.heading.experience, lang)}</h2>
 
                     <div className="flex justify-center items-center gap-2">
                         <span className="inline-block w-15 h-1 bg-linear-to-r from-indigo-600 to-indigo-500"></span>

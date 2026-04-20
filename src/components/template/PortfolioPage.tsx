@@ -35,11 +35,12 @@ export default function PortfolioPage({ data, mode }: PortfolioPageProps) {
     useEffect(() => {
         const handleScroll = () => {
             const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = (window.scrollY / totalScroll) * 100;
+            if (totalScroll <= 0) return;
+            const progress = Math.min(window.scrollY / totalScroll, 1);
             setScrollProgress(progress);
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -50,10 +51,10 @@ export default function PortfolioPage({ data, mode }: PortfolioPageProps) {
 
     return (
         <main className="relative pt-5">
-            {/* Global Scroll Progress Bar */}
+            {/* Smooth GPU-composited Scroll Progress Bar */}
             <div
-                className={`max-w-full sticky top-0 left-0 h-1 bg-linear-to-r ${progressGradient} transition-all duration-150 z-[100]`}
-                style={{ width: `${scrollProgress}%` }}
+                className={`fixed top-0 left-0 w-full h-1 bg-linear-to-r ${progressGradient} z-[200] origin-left will-change-transform`}
+                style={{ transform: `scaleX(${scrollProgress})` }}
             />
 
             {/* Navbar */}
@@ -65,15 +66,15 @@ export default function PortfolioPage({ data, mode }: PortfolioPageProps) {
             {/* Content Sections */}
             <Hero {...data.hero} currentMode={mode} />
             <About {...data.about} />
-            
-                        {/* Services Section */}
-                        {data.services?.services?.length > 0 && (
-                            <Services {...data.services} mode={mode} />
-                        )}
-                        
+
+            {/* Services Section */}
+            {data.services?.services?.length > 0 && (
+                <Services {...data.services} mode={mode} />
+            )}
+
             <Education {...data.education} />
             <Experience {...data.experience} />
-            
+
             <Projects {...data.projects} />
             <Skills {...data.skills} />
 

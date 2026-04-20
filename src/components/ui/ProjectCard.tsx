@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ProjectItem } from "@/lib/types";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { ui, t } from "@/lib/i18n/translations";
 
 export default function ProjectCard(data: ProjectItem) {
+    const { lang } = useLanguage();
 
     return (
         <Container>
@@ -21,8 +24,7 @@ export default function ProjectCard(data: ProjectItem) {
                     </p>
                     <Image
                         src={data.image || "/no-image.jpeg"}
-                        alt={data.title ? `${data.title} screenshot` : "Project Image"}
-                        // fill
+                        alt={data.title ? `${data.title[lang]} screenshot` : "Project Image"}
                         width={1000} height={1000}
                         className="object-cover rounded-3xl w-full h-auto border border-gray-400 shadow shadow-gray-300 shadow-2xsm"
                         priority={true}
@@ -32,23 +34,18 @@ export default function ProjectCard(data: ProjectItem) {
                 <div id="headings" className="flex flex-col justify-start text-start gap-3.5 pl-2 w-full lg:w-1/2">
                     <div className="flex flex-col gap-1 items-start">
                         <p className={`text-xl font-medium hover:text-indigo-600 dark:hover:text-blue-600`}>
-                            {data.title || "N/A"}
+                            {data.title[lang] || "N/A"}
                         </p>
                     </div>
 
                     <div>
                         <p className={`max-w-full text-balance text-md font-normal text-gray-500 dark:text-gray-300`}>
-                            {data.description || "N/A"}
+                            {data.description[lang] || "N/A"}
                         </p>
                     </div>
 
                     <div className="flex flex-col gap-4 ">
-                        <p className="text-lg font-semibold">Technology Stack</p>
-                        {/* <ul className="flex flex-row list-disc list-inside marker:text-indigo-600 marker:text-lg text-gray-500 gap-4 w-fit flex-wrap">
-                            {data.tech.map((desc, index) => (
-                                <li key={index} className={`border bg-linear-to-tr rounded-full py-1.25 px-3 pr-4 mr-0.5 font-medium text-nowrap ${theme === 'dark' ? 'text-gray-200 border-gray-800 from-gray-800/70 via-gray-500/80 to-gray-800/70' : 'text-black border-purple-400  from-white via-purple-200 to-indigo-200'} hover:scale-105 transform duration-300 ease-in-out`}>{desc}</li>
-                            ))}
-                        </ul> */}
+                        <p className="text-lg font-semibold">{t(ui.btn.techStack, lang)}</p>
                         <p>
                             {data.tech.map((tag, index) => (
                                 <span key={index} className={`inline-block text-md font-medium rounded-full py-1 px-3 mr-2 mb-2 border
@@ -61,7 +58,7 @@ export default function ProjectCard(data: ProjectItem) {
                         <Link href={`${data.githubLink}`} target="_blank" rel="noopener noreferrer">
                             <div className={`flex w-fit bg-linear-to-tr text-nowrap border border-gray-500 shadow-gray-400 from-indigo-600 to-purple-700 dark:border-indigo-700 dark:shadow-gray-700 dark:from-indigo-800 dark:via-indigo-600 dark:to-blue-950 rounded-full py-2 px-4 text-white text-md font-medium align-center justify-center items-center gap-2 shadow-sm hover:scale-105 transition duration-400 cursor-pointer`}>
                                 <div className="flex items-center">
-                                    View on GitHub
+                                    {t(ui.btn.viewGitHub, lang)}
                                 </div>
                                 <div className="flex flex-row">
                                     <Image
@@ -81,7 +78,7 @@ export default function ProjectCard(data: ProjectItem) {
                                 <Link href={`${data.liveLink}`} target="_blank" rel="noopener noreferrer">
                                     <div className={`flex w-fit bg-linear-to-tr text-nowrap border border-gray-500 shadow-gray-400 from-indigo-600 to-purple-700 dark:border-indigo-700 dark:shadow-gray-700 dark:from-indigo-800 dark:via-indigo-600 dark:to-blue-950 rounded-full py-2 px-4 text-white text-md font-medium align-center justify-center items-center gap-2 shadow-sm hover:scale-105 transition duration-400 cursor-pointer`}>
                                         <div className="flex items-center">
-                                            View Live
+                                            {t(ui.btn.viewLive, lang)}
                                         </div>
                                         <div className="flex flex-row">
                                             <Image

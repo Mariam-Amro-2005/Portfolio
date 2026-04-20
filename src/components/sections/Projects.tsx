@@ -1,13 +1,12 @@
 "use client";
 import Container from "../ui/Container";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { useTheme } from "next-themes";
 import { ProjectsProps } from "@/lib/types";
 import ProjectCard from "../ui/ProjectCard";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { ui, t } from "@/lib/i18n/translations";
 
 export default function Projects(project: ProjectsProps) {
-    const { theme } = useTheme();
+    const { lang } = useLanguage();
     return (
         <Container>
             <section id="projects" className="relative w-full h-auto py-32 flex flex-col items-center justify-center text-center font-sans">
@@ -18,10 +17,10 @@ export default function Projects(project: ProjectsProps) {
                         transition-colors duration-300 w-full text-wrap max-w-full break-all
                         text-7xl md:text-8xl lg:text-[10rem]
                     `}>
-                        Projects
+                        {t(ui.watermark.projects, lang)}
                     </h1>
 
-                    <h2 className={`relative text-5xl sm:text-6xl font-semibold text-black dark:text-white`}>Projects</h2>
+                    <h2 className={`relative text-5xl sm:text-6xl font-semibold text-black dark:text-white`}>{t(ui.heading.projects, lang)}</h2>
 
                     <div className="flex justify-center items-center gap-2">
                         <span className="inline-block w-15 h-1 bg-linear-to-r from-indigo-600 to-indigo-500"></span>

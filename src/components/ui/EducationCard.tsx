@@ -2,11 +2,11 @@
 import Container from "./Container";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useTheme } from "next-themes";
 import { EducationItem } from "@/lib/types";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function EducationCard(data: EducationItem) {
-    const { theme } = useTheme();
+    const { lang } = useLanguage();
 
     return (
         <>
@@ -31,7 +31,7 @@ export default function EducationCard(data: EducationItem) {
                                 className="rounded-full flex-0 object-contain"
                             />
                             <p className={`text-xl font-medium hover:text-indigo-600 dark:hover:text-blue-600`}>
-                                {data.degree || "N/A"}
+                                {data.degree[lang] || "N/A"}
                             </p>
                         </div>
 
@@ -49,7 +49,7 @@ export default function EducationCard(data: EducationItem) {
                     <div>
                         <ul className="list-disc list-inside marker:text-indigo-600 marker:text-lg text-gray-500">
                             {data.description.map((desc, index) => (
-                                <li key={index} className={`mb-1 text-gray-500 dark:text-gray-300`}>{desc}</li>
+                                <li key={index} className={`mb-1 text-gray-500 dark:text-gray-300`}>{desc[lang]}</li>
                             ))}
                         </ul>
                     </div>

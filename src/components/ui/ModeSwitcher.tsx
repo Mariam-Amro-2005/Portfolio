@@ -4,6 +4,9 @@ import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Code2, Brain, ChevronDown } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
+import { ui, t } from '@/lib/i18n/translations';
+
  // Import useTheme
 
 interface ModeSwitcherProps {
@@ -12,13 +15,14 @@ interface ModeSwitcherProps {
 
 export default function ModeSwitcher({ currentMode }: ModeSwitcherProps) {
     const router = useRouter();
+    const { lang, setLang } = useLanguage();
     const [isOpen, setIsOpen] = useState(false);
         const dropdownRef = useRef<HTMLDivElement>(null);
     
 
     const modes = [
-        { id: 'fullstack', label: 'Fullstack Development', icon: Code2, color: 'indigo' },
-        { id: 'ai', label: 'AI & Data Science', icon: Brain, color: 'purple' }
+        { id: 'fullstack', label: t(ui.landing.fullstackTitle, lang), icon: Code2, color: 'indigo' },
+        { id: 'ai', label: t(ui.landing.aiTitle, lang), icon: Brain, color: 'purple' }
     ] as const;
 
     // Close dropdown when clicking outside

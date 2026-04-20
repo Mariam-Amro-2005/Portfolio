@@ -1,11 +1,12 @@
 "use client";
 import { AchievementsProps } from "@/lib/types";
 import Container from "../ui/Container";
-import { useTheme } from "next-themes";
 import AchievementCard from "../ui/AchievementCard";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { ui, t } from "@/lib/i18n/translations";
 
 export default function Achievements(data: AchievementsProps) {
-    const { theme } = useTheme();
+    const { lang } = useLanguage();
     return (
         <Container>
             <section id="achievements" className="relative w-full h-auto py-32 flex flex-col items-center justify-center text-center font-sans">
@@ -16,10 +17,10 @@ export default function Achievements(data: AchievementsProps) {
                         transition-colors duration-300 text-wrap max-w-full break-all
                         text-7xl md:text-8xl lg:text-[10rem]
                     `}>
-                        Achievements
+                        {t(ui.watermark.achievements, lang)}
                     </h1>
 
-                    <h2 className={`relative text-5xl sm:text-6xl font-semibold text-black dark:text-white`}>Achievements</h2>
+                    <h2 className={`relative text-5xl sm:text-6xl font-semibold text-black dark:text-white`}>{t(ui.heading.achievements, lang)}</h2>
 
                     <div className="flex justify-center items-center gap-2">
                         <span className="inline-block w-15 h-1 bg-linear-to-r from-indigo-600 to-indigo-500"></span>

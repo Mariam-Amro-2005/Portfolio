@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { ui, t } from "@/lib/i18n/translations";
 
 interface NavbarProps {
     mode?: 'fullstack' | 'ai';
@@ -14,7 +16,8 @@ export default function Navbar({ mode, sections }: NavbarProps) {
     const [active, setActive] = useState("");
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
-    
+    const { lang, setLang } = useLanguage();
+
     useEffect(() => {
         setMounted(true);
     }, []);
@@ -60,15 +63,13 @@ export default function Navbar({ mode, sections }: NavbarProps) {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-
-
     const linkStyle = (id: string) => {
         const baseStyle = "transition hover:text-indigo-600 underline-offset-8 decoration-2";
-        
+
         if (active === id) {
             return `${baseStyle} underline decoration-2 underline-offset-2 decoration-pink-600 hover:decoration-indigo-500 dark:decoration-blue-600 dark:hover:decoration-indigo-400`;
         }
-        
+
         return `${baseStyle} no-underline hover:underline hover:decoration-indigo-500`;
     };
 
@@ -92,14 +93,23 @@ export default function Navbar({ mode, sections }: NavbarProps) {
         }
     };
 
-    const formatLabel = (id: string) => {
-        if (id === 'home') return 'Home';
-        if (id === 'achievements' || id === 'certifications') {
-            return id.charAt(0).toUpperCase() + id.slice(1);
-        }
+    const formatLabel = (id: string): string => {
+        const key = id as keyof typeof ui.nav;
+        if (ui.nav[key]) return t(ui.nav[key], lang);
         return id.charAt(0).toUpperCase() + id.slice(1);
     };
 
+    // Language toggle button
+    const LanguageToggle = () => (
+        <button
+            onClick={() => setLang(lang === 'en' ? 'ar' : 'en')}
+            className="flex items-center gap-1 px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700 text-xs font-semibold uppercase tracking-wide hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer"
+            aria-label="Toggle language"
+            id="language-toggle"
+        >
+            {lang === 'en' ? 'AR' : 'EN'}
+        </button>
+    );
 
     return (
         <nav className="flex justify-center mt-6 mb-6 sticky top-4 z-50 px-4">
@@ -139,6 +149,7 @@ export default function Navbar({ mode, sections }: NavbarProps) {
                             </Link>
                         ))}
 
+                        <LanguageToggle />
                         <ThemeToggle />
                     </div>
                 </div>
@@ -167,15 +178,17 @@ export default function Navbar({ mode, sections }: NavbarProps) {
                         </div>
                     </Link>
 
-                    <button
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className={`p-2 rounded-full border border-slate-300 dark:border-slate-700 backdrop-blur-md shadow-sm transition cursor-pointer
+                    <div className="flex items-center gap-2">
+                        <LanguageToggle />
+                        <button
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            className={`p-2 rounded-full border border-slate-300 dark:border-slate-700 backdrop-blur-md shadow-sm transition cursor-pointer
 hover:bg-slate-100 dark:hover:bg-slate-800`}
-                        aria-label="Toggle menu"
-                        // aria-expanded={isMenuOpen}
-                    >
-                        {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-                    </button>
+                            aria-label="Toggle menu"
+                        >
+                            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                        </button>
+                    </div>
                 </div>
 
                 {/* Mobile Menu Dropdown */}
@@ -192,7 +205,7 @@ hover:bg-slate-100 dark:hover:bg-slate-800`}
                                 onClick={(e) => handleLinkClick(e, 'home')}
                                 onKeyDown={(e) => handleKeyDown(e, 'home')}
                             >
-                                {formatLabel('home')}
+                                {t(ui.nav.home, lang)}
                             </Link>
                             {sections.map((id) => (
                                 <Link
