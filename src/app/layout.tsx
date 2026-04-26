@@ -14,6 +14,13 @@ export const metadata: Metadata = {
         title: "Mariam Seifeldin | Portfolio",
         description: "Fullstack Development & AI/Data Science Portfolio",
         type: "website",
+        images: ["/thumbnail.png"],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Mariam Seifeldin | Portfolio",
+        description: "Fullstack Development & AI/Data Science Portfolio",
+        images: ["/thumbnail.png"],
     },
 };
 
