@@ -114,6 +114,54 @@ export const experience: ExperienceProps = {
     experiences: [EgronXExp]
 }
 
+const NLPTextClassification: ProjectItem = {
+    title: {
+        en: "NLP Text Classification & Word Embeddings",
+        ar: "تصنيف النصوص وWord Embeddings في معالجة اللغة الطبيعية",
+    },
+    description: {
+        en: "Trained SVM and Logistic Regression classifiers on TF-IDF features from 17k+ Amazon reviews to categorize sentiment as positive, neutral, or negative. Built a CNN model with custom Word2Vec and pre-trained GloVe embeddings to classify 400k+ tweets into 6 distinct emotions. Compared accuracy across multiple sequence padding lengths (500, 700, 1000) and embedding schemes, identifying the optimal configuration for each dataset.",
+        ar: "تم تدريب مصنفات SVM و Logistic Regression على ميزات TF-IDF من أكثر من 17 ألف مراجعة أمازون لتصنيف المشاعر إلى إيجابية ومحايدة وسلبية. تم بناء نموذج CNN باستخدام Word2Vec مخصص وGloVe مدربة مسبقًا لتصنيف أكثر من 400 ألف تغريدة إلى 6 مشاعر مختلفة. تمت مقارنة الدقة عبر أطوال حشو مختلفة ومخططات تضمين، وتحديد التهيئة المثلى لكل مجموعة بيانات.",
+    },
+    image: "/ai/nlp-word-embedding-keras.jpg",
+    tech: ["Python", "scikit-learn", "Keras", "Gensim", "NLTK", "Pandas", "NumPy", "NLP", "Word Embeddings", "CNN", "TF-IDF"],
+    startDate: "May 2026",
+    endDate: "May 2026",
+    githubLink: "https://github.com/Salma884/NLP-Project",
+};
+
+const NgramSentenceGenerator: ProjectItem = {
+    title: {
+        en: "NLP Sentence Generator (N-gram Model)",
+        ar: "مولد الجمل باستخدام نماذج N-gram",
+    },
+    description: {
+        en: "Tokenized and cleaned 200k tokens from the Brown corpus to provide clean training data for n-gram models. Built bigram and trigram frequency dictionaries from scratch without external libraries, enabling fast probability look-ups. Generated sentences by greedily picking the most probable next word, stopping at a user-defined max length.",
+        ar: "تم تقسيم وتنظيف 200 ألف رمز من مجموعة Brown corpus لتوفير بيانات تدريب نظيفة لنماذج n-gram. تم بناء قواميس تردد bigram و trigram من الصفر دون مكتبات خارجية، مما يتيح عمليات بحث سريعة عن الاحتمالات. تم توليد الجمل عن طريق اختيار الكلمة التالية الأكثر احتمالية بشكل جشع، والتوقف عند طول أقصى يحدده المستخدم.",
+    },
+    image: "/ai/n-gram-sentences.jpg",
+    tech: ["Python", "NLTK", "Brown Corpus", "Bigram", "Trigram", "Language Models", "NLP"],
+    startDate: "Mar 2026",
+    endDate: "Mar 2026",
+    githubLink: "https://github.com/Mariam-Amro-2005/NLP-Sentence-Generator",
+};
+
+const JenkinsPipeline: ProjectItem = {
+    title: {
+        en: "CI/CD Pipeline with Jenkins",
+        ar: "خط أنابيب CI/CD باستخدام Jenkins",
+    },
+    description: {
+        en: "Automated cloning, dependency installation, and unit testing of a Node.js calculator application using a Jenkins pipeline. Achieved full arithmetic coverage with Jest to prevent regressions before merging. The pipeline is integrated with GitHub for continuous integration, providing instant feedback on every commit.",
+        ar: "أتمتة استنساج الكود، وتثبيت التبعيات، واختبار الوحدة لتطبيق آلة حاسبة بـ Node.js باستخدام خط أنابيب Jenkins. تم تحقيق تغطية اختبارية كاملة باستخدام Jest لمنع الانحدارات قبل الدمج. تم دمج خط الأنابيب مع GitHub لتكامل مستمر وتقديم تغذية راجعة فورية لكل عملية دفع.",
+    },
+    image: "/pipeline-overview-2.png",
+    tech: ["Node.js","JavaScript", "Jest", "Jenkins", "Git", "GitHub", "CI/CD"],
+    startDate: "May 2026",
+    endDate: "May 2026",
+    githubLink: "https://github.com/Mariam-Amro-2005/Simple-Calculator-Jenkins-Test",
+};
+
 const AIVisionClassifierSystem: ProjectItem = {
     title: {
         en: "AI-Vision-Classifier-System",
@@ -163,7 +211,7 @@ const Gomoku: ProjectItem = {
 }
 
 export const project: ProjectsProps = {
-    projects: [AIVisionClassifierSystem, SoftComputingLibrary, Gomoku]
+    projects: [NLPTextClassification, NgramSentenceGenerator, JenkinsPipeline, AIVisionClassifierSystem, SoftComputingLibrary, Gomoku]
 };
 
 const AISkills: SkillsItem = {
