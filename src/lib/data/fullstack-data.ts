@@ -121,6 +121,58 @@ export const experience: ExperienceProps = {
     experiences: [EgronXExp]
 }
 
+// Add to imports at top if needed (none required)
+
+const Matchmind: ProjectItem = {
+    title: {
+        en: "Matchmind - Football Fan Engagement Platform",
+        ar: "Matchmind - منصة تفاعل لمشجعي كرة القدم",
+    },
+    description: {
+        en: "A full-stack football engagement platform where users can favorite teams, track live fixtures, and earn points by predicting match scores. Built with Laravel and MySQL, the system includes RESTful APIs for authentication, team management, fixture tracking, and scoring. The application is containerized with Docker for consistent deployment, and the responsive UI uses Blade templates and vanilla JavaScript.",
+        ar: "منصة شاملة لمشجعي كرة القدم تتيح للمستخدمين تفضيل الفرق، ومتابعة المباريات الحية، وكسب النقاط عبر توقع نتائج المباريات. تم بناء النظام باستخدام Laravel وMySQL، ويتضمن واجهات REST API للمصادقة وإدارة الفرق وتتبع المباريات والتسجيل. تمت حاوية التطبيق باستخدام Docker، وتستخدم الواجهة قوالب Blade وJavaScript.",
+    },
+    image: "/fullstack/matchmind-home.png",
+    tech: ["Laravel", "PHP", "MySQL", "Docker", "REST APIs", "HTML", "CSS", "JavaScript"],
+    startDate: "April 2026",
+    endDate: "May 2026",
+    githubLink: "https://github.com/philokaram/matchmind-laravel",
+    liveLink: "https://matchmind.free.nf/",
+};
+
+const FirebaseInbox: ProjectItem = {
+    title: {
+        en: "Firebase Notification Inbox System",
+        ar: "نظام صندوق وارد الإشعارات باستخدام Firebase",
+    },
+    description: {
+        en: "A web application that enables FCM topic subscription, push notification reception, and persistent storage of notifications in Firebase Realtime Database. Real-time inbox updates are implemented via Firebase listeners, eliminating manual refresh. The client is deployed on Firebase Hosting and the backend on Cloud Run, achieving a fully serverless architecture.",
+        ar: "تطبيق ويب يتيح الاشتراك في مواضيع FCM، واستقبال الإشعارات الفورية، وتخزين الإشعارات في Realtime Database من Firebase. يتم تحديث صندوق الوارد لحظيًا عبر مستمعات Firebase، مما يلغي الحاجة إلى التحديث اليدوي. العميل منشور على Firebase Hosting والخلفية على Cloud Run لتحقيق بنية Serverless كاملة.",
+    },
+    image: "/fullstack/firebase-home.png",
+    tech: ["Firebase", "Node.js", "Next.js", "JavaScript", "Firebase Hosting", "Cloud Run", "Cloud Functions" ,"FCM", "Realtime Database"],
+    startDate: "Apr 2026",
+    endDate: "Apr 2026",
+    githubLink: "https://github.com/Mariam-Amro-2005/Cloud-Project",
+    liveLink: "https://cloud-project-2026-bcb55.web.app/",
+};
+
+const JenkinsPipeline: ProjectItem = {
+    title: {
+        en: "CI/CD Pipeline with Jenkins",
+        ar: "خط أنابيب CI/CD باستخدام Jenkins",
+    },
+    description: {
+        en: "Automated cloning, dependency installation, and unit testing of a Node.js calculator application using a Jenkins pipeline. Achieved full arithmetic coverage with Jest to prevent regressions before merging. The pipeline is integrated with GitHub for continuous integration, providing instant feedback on every commit.",
+        ar: "أتمتة استنساج الكود، وتثبيت التبعيات، واختبار الوحدة لتطبيق آلة حاسبة بـ Node.js باستخدام خط أنابيب Jenkins. تم تحقيق تغطية اختبارية كاملة باستخدام Jest لمنع الانحدارات قبل الدمج. تم دمج خط الأنابيب مع GitHub لتكامل مستمر وتقديم تغذية راجعة فورية لكل عملية دفع.",
+    },
+    image: "/pipeline-overview-2.png",
+    tech: ["Node.js","JavaScript", "Jest", "Jenkins", "Git", "GitHub", "CI/CD"],
+    startDate: "May 2026",
+    endDate: "May 2026",
+    githubLink: "https://github.com/Mariam-Amro-2005/Simple-Calculator-Jenkins-Test",
+};
+
 const HealMeals: ProjectItem = {
     title: {
         en: "HealMeals - Full-Stack Web App",
@@ -204,7 +256,7 @@ const Library: ProjectItem = {
 }
 
 export const project: ProjectsProps = {
-    projects: [HealMeals, FurnitureHome, ReelVerse, LMS, Library]
+    projects: [Matchmind, FirebaseInbox, JenkinsPipeline, HealMeals, FurnitureHome, ReelVerse, LMS, Library]
 };
 
 const AISkills: SkillsItem = {
