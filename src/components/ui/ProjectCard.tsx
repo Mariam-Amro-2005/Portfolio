@@ -12,7 +12,7 @@ export default function ProjectCard(data: ProjectItem) {
 
     return (
         <Container>
-            <div id="projectCard" className={`w-full max-w-full border h-auto rounded-2xl p-6 
+            <div id="projectCard" className={`w-full max-w-full border h-full rounded-2xl p-6 
                 flex flex-col justify-start gap-3.5 font-sans transition-all duration-300 
                 ease-out hover:-translate-y-3 hover:shadow-2xl transform
                 border-gray-300 hover:bg-linear-to-br hover:from-indigo-300/50 hover:border-purple-400/50 hover:text-indigo-600 dark:hover:border-blue-800 dark:border-gray-700 dark:text-white dark:hover:text-blue-600 dark:bg-linear-to-b dark:md:bg-linear-to-br dark:from-gray-800/90 dark:from-35% dark:md:from-15% dark:via-black/10 dark:to-gray-900 dark:to-70% dark:md:to-90%`}>
@@ -22,13 +22,15 @@ export default function ProjectCard(data: ProjectItem) {
                         border-purple-400/70 bg-purple-400/20 text-indigo-600 dark:border-blue-900 dark:bg-linear-to-b dark:from-gray-800 dark:to-blue-900/50 dark:text-gray-300`}>
                         {data.startDate} - {data.endDate}
                     </p>
-                    <Image
-                        src={data.image || "/no-image.jpeg"}
-                        alt={data.title ? `${data.title[lang]} screenshot` : "Project Image"}
-                        width={1000} height={1000}
-                        className="object-cover rounded-3xl w-full h-auto border border-gray-400 shadow shadow-gray-300 shadow-2xsm"
-                        priority={true}
-                    />
+                    <div className="w-full max-h-96 overflow-hidden rounded-3xl">
+                        <Image
+                            src={data.image || "/no-image.jpeg"}
+                            alt={data.title ? `${data.title[lang]} screenshot` : "Project Image"}
+                            width={1000} height={1000}
+                            className="object-cover rounded-3xl w-full h-full border border-gray-400 shadow shadow-gray-300 shadow-2xsm"
+                            priority={true}
+                        />
+                    </div>
                 </div>
 
                 <div id="headings" className="flex flex-col justify-start text-start gap-3.5 pl-2 w-full">
