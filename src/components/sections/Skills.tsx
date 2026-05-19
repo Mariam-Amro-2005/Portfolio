@@ -33,7 +33,7 @@ export default function Skills(data: SkillsProps) {
                     </div>
                 </div>
 
-                <div>
+                <div className="w-full lg:max-w-4xl px-10">
                     {data.skills.map((skill, index) => (
                         <div key={index} className="flex flex-col items-start gap-3 mb-6">
                             <div className="flex flex-row gap-3 items-end w-full ">
@@ -50,7 +50,7 @@ export default function Skills(data: SkillsProps) {
                             <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full list-none mt-2">
                                 {skill.skills.map((item, itemIndex) => (
                                     <li key={itemIndex} className="flex items-center gap-3 border bg-linear-to-tr rounded-xl py-2.5 px-4 shadow-sm hover:shadow-md font-medium text-black dark:text-gray-300 border-indigo-200 dark:border-blue-800 bg-white/50 dark:bg-blue-900/20 hover:bg-white dark:hover:bg-blue-900/40 hover:-translate-y-0.5 hover:border-indigo-400 dark:hover:border-blue-400 transform duration-300 ease-in-out cursor-default text-start">
-                                        <span className="w-2 h-2 rounded-full bg-indigo-500 dark:bg-blue-400 flex-shrink-0"></span>
+                                        <span className="w-2 h-2 rounded-full bg-indigo-500 dark:bg-blue-400 shrink-0"></span>
                                         <span className="truncate">{item}</span>
                                     </li>
                                 ))}
