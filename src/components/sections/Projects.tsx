@@ -30,7 +30,7 @@ export default function Projects(project: ProjectsProps) {
 
                 </div>
 
-                <div className="w-full">
+                <div className="grid grid-cols-1 gap-6 w-full lg:grid-cols-2">
                     {project.projects.map((proj, index) => (
                         <ProjectCard key={index} {...proj} />
                     ))}
