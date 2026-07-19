@@ -32,7 +32,7 @@ export const about: AboutProps = {
     github: Github,
     email: Email,
     phone: Phone,
-    resume: "https://drive.google.com/file/d/1eVP4ahB4EVlCu5dnUxoCvn6jRXrtJp2I/view?usp=sharing"
+    resume: "https://drive.google.com/file/d/1JLRGdUWhT6BcNUZbKOgeAZnI_VPdQCDj/view?usp=sharing"
 };
 
 const BachelorsEdu: EducationItem = {
