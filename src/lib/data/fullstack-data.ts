@@ -121,7 +121,38 @@ export const experience: ExperienceProps = {
     experiences: [EgronXExp]
 }
 
-// Add to imports at top if needed (none required)
+const InclusiChat: ProjectItem = {
+    title: {
+        en: "InclusiChat - Real-Time Communication Platform",
+        ar: "InclusiChat - منصة تواصل فورية",
+    },
+    description: {
+        en: "Architected a scalable full-stack platform with Django and Next.js (TypeScript), supporting 50+ concurrent users with sub-300ms message latency. Developed a microservices architecture using Django, FastAPI, PostgreSQL, and Redis to enable WebSocket-based real-time messaging and presence tracking. Containerized a 4-tier application stack with Docker Compose. Integrated Three.js to render 60 FPS real-time sign language avatars with adaptive fallbacks, improving accessibility across low-end devices.",
+        ar: "صممت منصة شاملة قابلة للتوسع باستخدام Django و Next.js (TypeScript) تدعم أكثر من 50 مستخدمًا متزامنًا مع زمن استجابة أقل من 300 مللي ثانية. طوّرت بنية الخدمات المصغرة باستخدام Django و FastAPI و PostgreSQL و Redis لتمكين المراسلة الفورية عبر WebSocket وتتبع الحضور. تم حاوية مجموعة تطبيقات من 4 طبقات باستخدام Docker Compose. دمجت Three.js لتقديم صور رمزية للغة الإشارة بمعدل 60 إطارًا في الثانية مع بدائل تكيفية، مما يحسّن إمكانية الوصول عبر الأجهزة منخفضة الموارد.",
+    },
+    image: "/fullstack/InclusiChat.png",
+    tech: ["Django", "Next.js", "WebSockets", "Docker", "Three.js", "PostgreSQL", "Redis"],
+    startDate: "Sep 2025",
+    endDate: "Jul 2026",
+    githubLink: "https://github.com/saeedmhmoud100/Graduation-Project-Frontend",
+};
+
+const EVGuard: ProjectItem = {
+    title: {
+        en: "EVGuard – Predictive EV Maintenance Platform",
+        ar: "EVGuard – منصة الصيانة التنبؤية للسيارات الكهربائية",
+    },
+    description: {
+        en: "Architected a React and FastAPI platform delivering real-time EV failure predictions with sub-200ms latency. Built a Recharts dashboard with a Three.js 3D vehicle model for real-time health monitoring. Developed RESTful APIs for a 25-feature prediction pipeline and maintenance recommendation engine. Containerized the full stack with Docker and deployed to Render and Netlify.",
+        ar: "صممت منصة React و FastAPI تقدم تنبؤات فورية لأعطال السيارات الكهربائية بزمن استجابة أقل من 200 مللي ثانية. بنيت لوحة تحكم باستخدام Recharts ونموذج ثلاثي الأبعاد للسيارة باستخدام Three.js للمراقبة الصحية الفورية. طورت واجهات REST API لأنبوب تنبؤي يحتوي على 25 ميزة ومحرك توصيات الصيانة. تم حاوية المجموعة الكاملة بـ Docker ونشرها على Render و Netlify.",
+    },
+    image: "/fullstack/EVGuard.jpg",
+    tech: ["React", "Vite", "FastAPI", "Three.js", "Recharts", "Docker", "Tailwind CSS"],
+    startDate: "Jan 2026",
+    endDate: "Jul 2026",
+    githubLink: "https://github.com/Mariam-Amro-2005/Capstone-Project-DEPI",
+    liveLink: "https://capstone-project-depi.vercel.app/",
+};
 
 const Matchmind: ProjectItem = {
     title: {
@@ -256,7 +287,7 @@ const Library: ProjectItem = {
 }
 
 export const project: ProjectsProps = {
-    projects: [Matchmind, FirebaseInbox, JenkinsPipeline, HealMeals, FurnitureHome, ReelVerse, LMS, Library]
+    projects: [InclusiChat, EVGuard, Matchmind, FirebaseInbox, JenkinsPipeline, HealMeals, FurnitureHome, ReelVerse, LMS, Library]
 };
 
 const AISkills: SkillsItem = {
