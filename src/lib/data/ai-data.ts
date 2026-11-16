@@ -389,7 +389,7 @@ const DataScienceDepi: CertificationItem = {
             ar: "تُطوَّر أيضاً مهارات مهنية في تحسين السيرة الذاتية وبناء العلامة الشخصية على LinkedIn والعمل الحر والتواصل.",
         },
     ],
-    date: "Nov 2025 - Present",
+    date: "Nov 2025 - Jul 2026",
     tags: ["Python", "Machine Learning", "Data Science"],
     link: "https://drive.google.com/file/d/1ikrz_DXn0Nw10a-gtw2MUEvvwP1QtGLu/view?usp=sharing"
 }
