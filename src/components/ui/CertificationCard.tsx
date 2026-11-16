@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { CertificationItem } from "@/lib/types";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { ui, t } from "@/lib/i18n/translations";
@@ -61,6 +62,27 @@ export default function CertificationCard(data: CertificationItem) {
                                 bg-purple-400/20 text-indigo-600/85 border-purple-400/70 dark:bg-blue-600/20 dark:text-gray-300 dark:border-blue-800`}> {tag}</span>
                         ))}
                     </div>
+
+                    {data.link && (
+                        <div className="flex flex-row gap-4 pt-1">
+                            <Link href={data.link} target="_blank" rel="noopener noreferrer">
+                                <div className={`flex w-fit bg-linear-to-tr text-nowrap border border-gray-500 shadow-gray-400 from-indigo-600 to-purple-700 dark:border-indigo-700 dark:shadow-gray-700 dark:from-indigo-800 dark:via-indigo-600 dark:to-blue-950 rounded-full py-2 px-4 text-white hover:text-white text-md font-medium align-center justify-center items-center gap-2 shadow-sm hover:scale-105 transition duration-400 cursor-pointer`}>
+                                    <div className="flex items-center">
+                                        {t(ui.btn.viewCertificate, lang)}
+                                    </div>
+                                    <div className="flex flex-row">
+                                        <Image
+                                            src="/icons/icons8-open-link-100.png"
+                                            alt="Certificate Link"
+                                            width={20}
+                                            height={20}
+                                            className="flex items-center"
+                                        />
+                                    </div>
+                                </div>
+                            </Link>
+                        </div>
+                    )}
                 </div>
             </div>
         </>

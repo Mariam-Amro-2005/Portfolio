@@ -62,6 +62,7 @@ export const ui = {
         exploreAI:      { en: 'Explore AI/ML →',         ar: 'استكشف AI/ML ←' },
         techStack:      { en: 'Technology Stack',        ar: 'التقنيات المستخدمة' },
         more:           { en: 'more',                    ar: 'المزيد' },
+        viewCertificate:{ en: 'View Certificate',        ar: 'عرض الشهادة' },
     },
 
     // About section
