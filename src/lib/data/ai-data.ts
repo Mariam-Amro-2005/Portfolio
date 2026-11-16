@@ -16,7 +16,7 @@ export const hero: HeroProps = {
         { en: "Python & PyTorch Specialist",            ar: "متخصصة في Python وPyTorch" },
         { en: "Data Analyst & Visualization Expert",    ar: "محللة بيانات وخبيرة تصوير بياني" },
         { en: "End-to-End ML Pipeline Builder",         ar: "بانية خطوط أنابيب ML من البداية للنهاية" },
-        { en: "5+ Years Experience",                    ar: "خبرة +5 سنوات" },
+        { en: "2+ Years Experience",                    ar: "خبرة +5 سنوات" },
     ],
     location: Location,
     email: Email,
@@ -26,14 +26,14 @@ export const about: AboutProps = {
     photo: "/profile1.jpeg",
     name: { en: "Mariam", ar: "مريم" },
     bio: {
-        en: "I'm a Machine Learning Engineer and Data Science enthusiast building intelligent, data-driven solutions to real-world problems. I develop end-to-end ML pipelines using Python and PyTorch, and leverage tools like Pandas, Excel, and Power BI to transform complex data into actionable insights. I combine analytical rigor with practical implementation and thrive in collaborative environments where AI and data create measurable impact.",
-        ar: "أنا مهندسة تعلم آلة ومتحمسة لعلوم البيانات، أبني حلولاً ذكية قائمة على البيانات لمشاكل العالم الحقيقي. أطوّر خطوط أنابيب ML متكاملة باستخدام Python وPyTorch، وأستفيد من أدوات مثل Pandas وExcel وPower BI لتحويل البيانات المعقدة إلى رؤى قابلة للتنفيذ. أجمع بين الدقة التحليلية والتطبيق العملي وأزدهر في البيئات التعاونية حيث يصنع الذكاء الاصطناعي والبيانات أثراً ملموساً.",
+        en: "I am an AI Engineer and Data Scientist specializing in building intelligent, end-to-end solutions that bridge complex data and real-world applications. I develop RAG architectures, multi-agent frameworks, and predictive ML models using PyTorch (Python), LangGraph, and FastAPI. Skilled in NLP, deep learning, and data analysis with Scikit-learn, Pandas, and Power BI, I thrive in collaborative environments where AI creates measurable impact.",
+        ar: "أنا مهندسة ذكاء اصطناعي وعالمة بيانات متخصصة في بناء حلول ذكية ومتكاملة تربط بين البيانات المعقدة والتطبيقات العملية. أقوم بتطوير هندسات RAG، وأطر متعددة الوكلاء، ونماذج تعلم آلة تنبؤية باستخدام PyTorch (Python) وLangGraph وFastAPI. ماهرة في معالجة اللغة الطبيعية والتعلم العميق وتحليل البيانات باستخدام Scikit-learn وPandas وPower BI، وأزدهر في البيئات التعاونية حيث يصنع الذكاء الاصطناعي أثراً ملموساً.",
     },
     linkedin: Linkedin,
     github: Github,
     email: Email,
     phone: Phone,
-    resume: "https://drive.google.com/file/d/1vML2S89Atys3K2OtrUsY4vsBF9vCvv50/view?usp=sharing"
+    resume: "https://drive.google.com/file/d/1LS7zHPSXQsyAei04NXW9zsveoGFT_vZo/view?usp=sharing"
 };
 
 const BachelorsEdu: EducationItem = {
@@ -44,18 +44,18 @@ const BachelorsEdu: EducationItem = {
     institution: "Faculty of Computers and Artificial Intelligence – Cairo University",
     location: "Cairo, Egypt",
     startDate: "Sep 2022",
-    endDate: "Present",
+    endDate: "Sep 2026",
     description: [
         {
-            en: "Pursuing a degree focused on computer science with a strong GPA of 3.38 (Very Good)",
-            ar: "أتابع درجة علمية في علوم الحاسوب بمعدل تراكمي قوي 3.38 (جيد جداً)",
+            en: "Graduated with a BSc in Computer Science and a strong GPA of 3.4 (Very Good).",
+            ar: "تخرجت بدرجة البكالوريوس في علوم الحاسوب بمعدل تراكمي قوي 3.4 (جيد جداً).",
         },
         {
-            en: "Relevant coursework includes core computer science subjects with honors denoting strong academic performance.",
-            ar: "تشمل المقررات ذات الصلة مواد علوم الحاسوب الأساسية مع تميز يدل على أداء أكاديمي قوي.",
+            en: "Relevant coursework includes Natural Language Processing, Machine Learning, Artificial Intelligence, and Advanced Software Engineering.",
+            ar: "تشمل المقررات ذات الصلة معالجة اللغة الطبيعية، وتعلم الآلة، والذكاء الاصطناعي، وهندسة البرمجيات المتقدمة.",
         },
     ],
-    tags: ["Computer Science", "Web Development", "Software Engineering", "Frontend Development", "Backend Development"],
+    tags: ["Computer Science", "Artificial Intelligence", "Machine Learning", "NLP", "Software Engineering", "Full-Stack Development"],
 }
 
 const HighSchoolEdu: EducationItem = {
@@ -82,6 +82,32 @@ const HighSchoolEdu: EducationItem = {
 
 export const education: EducationProps = {
     educations: [BachelorsEdu, HighSchoolEdu]
+}
+
+const QubeterraFellowship: ExperienceItem = {
+    title: {
+        en: "AI Engineering Fellow",
+        ar: "زميلة هندسة الذكاء الاصطناعي",
+    },
+    company: "Qubeterra AI NextGen Program (ITU, Huawei)",
+    location: "Remote",
+    startDate: "Aug 2026",
+    endDate: "Oct 2026",
+    description: [
+        {
+            en: "Selected as one of the top participants in this intensive fellowship, recognized for excellence in system architecture, problem-solving, and technical communication.",
+            ar: "تم اختياري كواحدة من أفضل المشاركين في هذا البرنامج المكثف، تقديراً للتميز في هندسة الأنظمة وحل المشكلات والتواصل التقني.",
+        },
+        {
+            en: "Engineered a production-ready RAG pipeline (911 documents) and a 5-persona LangGraph multi-agent framework with tool-calling, memory, and context summarization.",
+            ar: "طوّرت خط أنابيب RAG جاهز للإنتاج (911 مستنداً) وإطار عمل LangGraph متعدد الوكلاء يضم 5 شخصيات، مع استدعاء الأدوات والذاكرة وتلخيص السياق.",
+        },
+        {
+            en: "Built a Next.js/TypeScript frontend with real-time SSE streaming and integrated multiple LLMs (GPT, Gemma) with Langfuse for observability and Docker for containerization.",
+            ar: "بنيت واجهة أمامية بـNext.js/TypeScript مع بث SSE في الوقت الفعلي، ودمجت نماذج LLM متعددة (GPT، Gemma) مع Langfuse للمراقبة وDocker للحزم.",
+        },
+    ],
+    tags: ["AI Engineering", "LLMs", "LangGraph", "RAG", "FastAPI", "Next.js", "Docker", "Langfuse"],
 }
 
 const EgronXExp: ExperienceItem = {
@@ -111,8 +137,57 @@ const EgronXExp: ExperienceItem = {
 }
 
 export const experience: ExperienceProps = {
-    experiences: [EgronXExp]
+    experiences: [QubeterraFellowship, EgronXExp]
 }
+
+const MultiAgentOpinionSimulator: ProjectItem = {
+    title: {
+        en: "Multi-Agent Opinion Simulator",
+        ar: "محاكي الآراء متعدد الوكلاء",
+    },
+    description: {
+        en: "Developed a production-ready RAG pipeline using 911 scraped documents for hybrid retrieval with citations, alongside a LangGraph agent framework featuring 5 personas, tool-calling, and two-tier memory. Integrated multiple LLMs (GPT, Gemma) and built a Next.js frontend with real-time SSE streaming for live agent discussions. Enhanced observability with Langfuse tracing and structured logging, containerizing the full stack with Docker.",
+        ar: "طوّرت خط أنابيب RAG جاهز للإنتاج باستخدام 911 مستنداً لاسترجاع هجين مزود بالمراجع، إلى جانب إطار عمل لوكلاء LangGraph يضم 5 شخصيات، واستدعاء الأدوات، وذاكرة من مستويين. دمجت نماذج LLM متعددة (مثل GPT وGemma) وبنيت واجهة أمامية بـNext.js لبث تفاعلات الوكلاء في الوقت الفعلي عبر SSE. عززت المراقبة باستخدام Langfuse والسجلات المنظمة، وحزمت النظام بالكامل باستخدام Docker.",
+    },
+    image: "/ai/Multi-Agent-Opinion-Simulator.png",
+    tech: ["Python", "FastAPI", "LangGraph", "Next.js", "TypeScript", "Docker", "PostgreSQL", "pgvector", "Langfuse", "LLMs"],
+    startDate: "Aug 2026",
+    endDate: "Oct 2026",
+    liveLink: "https://drive.google.com/file/d/101b7c1BLyFmZZT_A8JNCuUSWdkyOQPGc/view?usp=sharing",
+};
+
+const InclusiChat: ProjectItem = {
+    title: {
+        en: "InclusiChat – Bidirectional Sign Language Translation",
+        ar: "InclusiChat – ترجمة لغة الإشارة ثنائية الاتجاه",
+    },
+    description: {
+        en: "Built a gloss-free Transformer model for sign-to-text translation, achieving a BLEU-4 score of 21.44 on the PHOENIX-2014T benchmark. Designed a text-to-sign pipeline generating 3D keypoints for avatar animation with 89.2% joint accuracy. Deployed ASR, SLR, TTS, and SLP models as a unified FastAPI microservice supporting text, voice, and sign language in real time.",
+        ar: "بنيت نموذج Transformer بدون الحاجة إلى gloss لترجمة لغة الإشارة إلى نص، محققاً درجة BLEU-4 تبلغ 21.44. صممت خط أنابيب نص-إلى-إشارة لتوليد نقاط مفصلية ثلاثية الأبعاد (3D keypoints) لتحريك الصور الرمزية بدقة 89.2%. نشرت نماذج ASR وSLR وTTS كخدمة FastAPI دقيقة موحدة تدعم النصوص والصوت ولغة الإشارة في الوقت الفعلي.",
+    },
+    image: "/ai/InclusiChat.png",
+    tech: ["PyTorch", "TensorFlow", "FastAPI", "BERT", "ONNX Runtime", "MediaPipe", "Three.js", "NLP", "Computer Vision"],
+    startDate: "Sep 2025",
+    endDate: "Jul 2026",
+    githubLink: "https://github.com/saeedmhmoud100/Graduation-Project-Backend",
+};
+
+const EVGuard: ProjectItem = {
+    title: {
+        en: "EVGuard – Electric Vehicle Predictive Maintenance",
+        ar: "EVGuard – الصيانة التنبؤية للسيارات الكهربائية",
+    },
+    description: {
+        en: "Built a LightGBM model on 25 engineered features that predicts five failure modes with 99.4% accuracy and a Macro F1 score of 0.891. Applied ADASYN oversampling to resolve a 444:1 class imbalance, boosting critical overheating recall from 77% to 97%. Deployed the model via FastAPI with a decision support engine, targeting a 20% reduction in unplanned roadside breakdowns.",
+        ar: "بنيت نموذج LightGBM يعتمد على 25 ميزة هندسية للتنبؤ بخمسة أنواع من الأعطال بدقة 99.4% ودرجة F1 تبلغ 0.891. طبقت تقنية ADASYN لمعالجة اختلال التوازن الطبقي (444:1)، مما رفع استدعاء ارتفاع درجة الحرارة الحرج من 77% إلى 97%. نشرت النموذج عبر FastAPI مع محرك دعم القرار لتقليل الأعطال المفاجئة على الطرق بنسبة 20%.",
+    },
+    image: "/ai/EVGuard.jpg",
+    tech: ["Python", "LightGBM", "Scikit-Learn", "FastAPI", "Pandas", "Docker", "Machine Learning", "Predictive Maintenance"],
+    startDate: "Jan 2026",
+    endDate: "Jul 2026",
+    githubLink: "https://github.com/Mariam-Amro-2005/Capstone-Project-DEPI",
+    liveLink: "https://capstone-project-depi.vercel.app/",
+};
 
 const NLPTextClassification: ProjectItem = {
     title: {
@@ -211,46 +286,87 @@ const Gomoku: ProjectItem = {
 }
 
 export const project: ProjectsProps = {
-    projects: [NLPTextClassification, NgramSentenceGenerator, JenkinsPipeline, AIVisionClassifierSystem, SoftComputingLibrary, Gomoku]
+    projects: [
+        MultiAgentOpinionSimulator, 
+        InclusiChat, 
+        EVGuard, 
+        NLPTextClassification, 
+        NgramSentenceGenerator, 
+        JenkinsPipeline, 
+        AIVisionClassifierSystem, 
+        SoftComputingLibrary, 
+        // Gomoku
+    ]
 };
-
-const AISkills: SkillsItem = {
-    category: { en: "AI & Data Science", ar: "الذكاء الاصطناعي وعلوم البيانات" },
-    skills: ["Python", "NumPy", "Pandas", "Scikit-learn", "PyTorch"],
-}
-
-const VisualizationSkills: SkillsItem = {
-    category: { en: "Data Visualization & BI", ar: "تصوير البيانات وذكاء الأعمال" },
-    skills: ["Matplotlib", "Seaborn", "Power BI"],
-}
 
 const ProgrammingSkills: SkillsItem = {
     category: { en: "Programming Languages", ar: "لغات البرمجة" },
-    skills: ["Python", "Java", "C++", "C", "Assembly"],
+    skills: ["Python", "Java", "C++", "C", "Assembly", "SQL"],
+}
+
+const AICoreSkills: SkillsItem = {
+    category: { en: "AI, ML & Deep Learning", ar: "الذكاء الاصطناعي وتعلم الآلة والتعلم العميق" },
+    skills: ["Scikit-learn", "PyTorch", "TensorFlow", "Hugging Face", "Machine Learning", "Deep Learning", "NLP", "TF-IDF", "Data Preprocessing", "EDA", "Feature Engineering", "Model Training", "Model Evaluation"],
+}
+
+const LLMSkills: SkillsItem = {
+    category: { en: "LLMs, Agentic AI & Generative AI", ar: "نماذج اللغة الكبيرة والوكلاء والذكاء الاصطناعي التوليدي" },
+    skills: ["LLMs", "RAG", "LangGraph", "LangChain", "Tool Calling", "Prompt Engineering", "Embeddings", "Word Embeddings", "Generative AI"],
+}
+
+const DataAnalysisSkills: SkillsItem = {
+    category: { en: "Data Analysis & Visualization", ar: "تحليل البيانات والتصوير البياني" },
+    skills: ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Power BI"],
 }
 
 const BackendSkills: SkillsItem = {
-    category: { en: "Backend Development", ar: "تطوير الواجهة الخلفية" },
-    skills: ["Spring Boot", "Django", "MySQL", "SQL", "SQLite"],
+    category: { en: "Backend, APIs & Databases", ar: "الواجهة الخلفية وواجهات البرمجة وقواعد البيانات" },
+    skills: ["FastAPI", "Django", "Spring Boot", "REST APIs", "PostgreSQL", "pgvector", "MySQL", "SQL", "SQLite"],
+}
+
+const MLOpsSkills: SkillsItem = {
+    category: { en: "MLOps & Observability", ar: "عمليات التعلم الآلي والمراقبة" },
+    skills: ["MLOps", "MLflow", "Langfuse", "Structured Logging", "Agent Tracing"],
+}
+
+const CloudAndToolsSkills: SkillsItem = {
+    category: { en: "Cloud, DevOps & Developer Tools", ar: "السحابة، DevOps وأدوات المطورين" },
+    skills: ["Docker", "Git", "GitHub", "Postman", "Figma", "Canva", "Vercel", "Railway", "Kaggle"],
 }
 
 const FrontendSkills: SkillsItem = {
-    category: { en: "Web & UI Development", ar: "تطوير الويب وواجهات المستخدم" },
+    category: { en: "Frontend & UI", ar: "الواجهة الأمامية وواجهات المستخدم" },
     skills: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Responsive Design"],
 }
 
-const FrameworkSkills: SkillsItem = {
-    category: { en: "Tools & Frameworks", ar: "الأدوات والأطر البرمجية" },
-    skills: ["Git", "GitHub", "Postman", "Figma", "Canva", "Vercel", "Railway"],
-}
-
 const SoftSkills: SkillsItem = {
-    category: { en: "Soft Skills", ar: "المهارات الشخصية" },
-    skills: ["Team Player", "Detail-oriented", "Communication"],
+    category: { en: "Soft Skills & Methodologies", ar: "المهارات الشخصية والمنهجيات" },
+    skills: ["Agile", "Team Player", "Detail-oriented", "Communication", "Teamwork", "Mentorship"],
 }
 
 export const skill: SkillsProps = {
-    skills: [AISkills, VisualizationSkills, BackendSkills, ProgrammingSkills, FrontendSkills, FrameworkSkills, SoftSkills]
+    skills: [ProgrammingSkills, AICoreSkills, LLMSkills, DataAnalysisSkills, BackendSkills, MLOpsSkills, CloudAndToolsSkills, FrontendSkills, SoftSkills]
+}
+
+const QubeterraFellowshipCert: CertificationItem = {
+    title: {
+        en: "Qubeterra AI NextGen Fellowship",
+        ar: "زمالة كيوبتيرا للذكاء الاصطناعي NextGen",
+    },
+    issuer: "Qubeterra (Supported by ITU & Huawei)",
+    description: [
+        {
+            en: "Selected as one of the top participants in this intensive AI engineering fellowship, focused on building practical AI systems and modern agentic architectures.",
+            ar: "تم اختياري كواحدة من أفضل المشاركين في هذه الزمالة المكثفة لهندسة الذكاء الاصطناعي، والتي تركز على بناء أنظمة ذكاء اصطناعي عملية وبنى الوكلاء الحديثة.",
+        },
+        {
+            en: "Received a formal recommendation letter from the Programs Director for excellence in system architecture, problem-solving, and technical communication.",
+            ar: "حصلت على خطاب توصية رسمي من مدير البرامج للتميز في هندسة الأنظمة وحل المشكلات والتواصل التقني.",
+        },
+    ],
+    date: "Oct 2026",
+    tags: ["AI Engineering", "LLMs", "LangGraph", "RAG", "Multi-Agent Systems"],
+    link: "https://drive.google.com/file/d/1OJTRBznVamad32FWlGDzLvipZRaT9Qb7/view?usp=sharing", 
 }
 
 const DataScienceDepi: CertificationItem = {
@@ -275,6 +391,7 @@ const DataScienceDepi: CertificationItem = {
     ],
     date: "Nov 2025 - Present",
     tags: ["Python", "Machine Learning", "Data Science"],
+    link: "https://drive.google.com/file/d/1ikrz_DXn0Nw10a-gtw2MUEvvwP1QtGLu/view?usp=sharing"
 }
 
 const DeepLearning: CertificationItem = {
@@ -331,6 +448,7 @@ const HuaweiTechEssentials: CertificationItem = {
     ],
     date: "Sep 2025",
     tags: ["Cloud Computing", "Huawei Cloud", "Computing Essentials"],
+    link: "https://drive.google.com/file/d/1jWEGfg0xyDiAN2VRPAkWSEqUZ6OjpCwY/view?usp=sharing"
 }
 
 export const achievement: AchievementsProps = {
@@ -338,7 +456,13 @@ export const achievement: AchievementsProps = {
 }
 
 export const certificate: CertificationsProps = {
-    certifications: [DataScienceDepi, DeepLearning, TransformerNLP, HuaweiTechEssentials]
+    certifications: [
+        QubeterraFellowshipCert,
+        DataScienceDepi, 
+        // DeepLearning, 
+        // TransformerNLP, 
+        HuaweiTechEssentials,
+    ]
 }
 
 export const contact: ContactProps = {
@@ -349,7 +473,7 @@ export const contact: ContactProps = {
 }
 
 export const languages = [
-    "Arabic (Mother tongue)", "English (Fluent, IGCSE certified)"
+    "Arabic (Mother tongue)", "English (Fluent, IGCSE certified)", "German (A2)"
 ]
 
 export const aiServices: ServiceItem[] = [

@@ -15,7 +15,7 @@ export const hero: HeroProps = {
         { en: "React Engineer",          ar: "مهندسة React" },
         { en: "Backend API Builder",     ar: "مطوّرة Backend وواجهات برمجية" },
         { en: "Software Engineer",       ar: "مهندسة برمجيات" },
-        { en: "5+ Years Experience",     ar: "خبرة +5 سنوات" },
+        { en: "3+ Years Experience",     ar: "خبرة +5 سنوات" },
     ],
     location: Location,
     email: Email,
@@ -25,14 +25,14 @@ export const about: AboutProps = {
     photo: "/profile1.jpeg",
     name: { en: "Mariam", ar: "مريم" },
     bio: {
-        en: "I am a dedicated Computer Science student at Cairo University with hands-on experience in full-stack web development using React, Spring Boot, and Django. Skilled in building responsive applications and collaborating on real-world projects. Seeking a Software Engineering Internship or Junior Developer opportunity to apply my technical skills and contribute to meaningful products.",
-        ar: "أنا طالبة علوم حاسوب متفانية في جامعة القاهرة، أمتلك خبرة عملية في تطوير تطبيقات الويب الشاملة باستخدام React وSpring Boot وDjango. أتقن بناء تطبيقات متجاوبة والتعاون في مشاريع حقيقية. أسعى للحصول على فرصة تدريب هندسة برمجيات أو منصب مطوّر مبتدئ لتطبيق مهاراتي التقنية والمساهمة في منتجات ذات قيمة.",
+        en: "I am a Software Engineer and Computer Science graduate from Cairo University with hands-on experience building cloud-deployed, end-to-end web applications. I architect scalable backend systems and robust REST APIs using Spring Boot (Java), FastAPI (Python), and Node.js (JavaScript), while crafting responsive, intuitive user interfaces with React and Next.js. Skilled in SQL/NoSQL databases, Docker, and CI/CD pipelines, I thrive in Agile environments where I can bridge the gap between complex backend logic and seamless user experiences to deliver production-ready software.",
+        ar: "أنا مهندسة برمجيات وخريجة علوم حاسوب من جامعة القاهرة، ولدي خبرة عملية في بناء تطبيقات ويب متكاملة (End-to-End) منشورة على السحابة. أقوم بتصميم وبناء أنظمة خلفية قابلة للتوسع وواجهات REST API قوية باستخدام Spring Boot (Java) وFastAPI (Python) وNode.js (JavaScript)، إلى جانب تطوير واجهات مستخدم متجاوبة وبديهية باستخدام React وNext.js. ماهرة في قواعد بيانات SQL/NoSQL وDocker وخطوط أنابيب CI/CD، وأزدهر في بيئات أجايل حيث يمكنني سد الفجوة بين منطق الواجهة الخلفية المعقد وتجارب المستخدم السلسة لتقديم برمجيات جاهزة للإنتاج.",
     },
     linkedin: Linkedin,
     github: Github,
     email: Email,
     phone: Phone,
-    resume: "https://drive.google.com/file/d/1JLRGdUWhT6BcNUZbKOgeAZnI_VPdQCDj/view?usp=sharing"
+    resume: "https://drive.google.com/file/d/1yGirHqCWFMHnPgm6AbJwAGZgLz7pq6TW/view?usp=sharing"
 };
 
 const BachelorsEdu: EducationItem = {
@@ -43,18 +43,18 @@ const BachelorsEdu: EducationItem = {
     institution: "Faculty of Computers and Artificial Intelligence – Cairo University",
     location: "Cairo, Egypt",
     startDate: "Sep 2022",
-    endDate: "Present",
+    endDate: "Sep 2026",
     description: [
         {
-            en: "Pursuing a degree focused on computer science with a strong GPA of 3.38 (Very Good)",
-            ar: "أتابع درجة علمية في علوم الحاسوب بمعدل تراكمي قوي 3.38 (جيد جداً)",
+            en: "Graduated with a BSc in Computer Science and a strong GPA of 3.4 (Very Good).",
+            ar: "تخرجت بدرجة البكالوريوس في علوم الحاسوب بمعدل تراكمي قوي 3.4 (جيد جداً).",
         },
         {
-            en: "Relevant coursework includes core computer science subjects with honors denoting strong academic performance.",
-            ar: "تشمل المقررات ذات الصلة مواد علوم الحاسوب الأساسية مع تميز يدل على أداء أكاديمي قوي.",
+            en: "Relevant coursework includes Advanced Software Engineering, Web-based Information Systems, Web Technology, Cloud Computing, and Introduction to Database Systems.",
+            ar: "تشمل المقررات ذات الصلة هندسة البرمجيات المتقدمة، وأنظمة المعلومات القائمة على الويب، وتكنولوجيا الويب، والحوسبة السحابية، ومقدمة في أنظمة قواعد البيانات.",
         },
     ],
-    tags: ["Computer Science", "Web Development", "Software Engineering", "Frontend Development", "Backend Development"],
+    tags: ["Computer Science", "Software Engineering", "Web Development", "Cloud Computing", "Backend Development"],
 }
 
 const HighSchoolEdu: EducationItem = {
@@ -81,6 +81,32 @@ const HighSchoolEdu: EducationItem = {
 
 export const education: EducationProps = {
     educations: [BachelorsEdu, HighSchoolEdu]
+}
+
+const QubeterraFellowship: ExperienceItem = {
+    title: {
+        en: "AI Engineering Fellow",
+        ar: "زميلة هندسة الذكاء الاصطناعي",
+    },
+    company: "Qubeterra AI NextGen Program (ITU, Huawei)",
+    location: "Remote",
+    startDate: "Aug 2026",
+    endDate: "Oct 2026",
+    description: [
+        {
+            en: "Built and shipped a production-ready Next.js/TypeScript frontend with real-time Server-Sent Events (SSE) streaming for live agent discussions and progressive analytics.",
+            ar: "بنيت وسلّمت واجهة أمامية جاهزة للإنتاج بـNext.js/TypeScript مع بث SSE في الوقت الفعلي لمناقشات الوكلاء المباشرة والتحليلات التدريجية.",
+        },
+        {
+            en: "Engineered FastAPI backend services with PostgreSQL/pgvector and Docker Compose, incorporating structured logging and health monitoring to support reliable service operation.",
+            ar: "طورت خدمات خلفية بـFastAPI مع PostgreSQL/pgvector وDocker Compose، مع دمج التسجيل المنظم ومراقبة الحالة لدعم تشغيل الخدمة بشكل موثوق.",
+        },
+        {
+            en: "Integrated frontend, backend, and AI services into a multi-agent platform using graph-based routing, tool-calling, memory management, and real-time communication.",
+            ar: "دمجت الواجهات الأمامية والخلفية وخدمات الذكاء الاصطناعي في منصة متعددة الوكلاء باستخدام التوجيه القائم على الرسم البياني واستدعاء الأدوات وإدارة الذاكرة والتواصل في الوقت الفعلي.",
+        },
+    ],
+    tags: ["Full-Stack Development", "Next.js", "TypeScript", "FastAPI", "PostgreSQL", "Docker", "SSE"],
 }
 
 const EgronXExp: ExperienceItem = {
@@ -118,7 +144,7 @@ const EgronXExp: ExperienceItem = {
 }
 
 export const experience: ExperienceProps = {
-    experiences: [EgronXExp]
+    experiences: [QubeterraFellowship, EgronXExp]
 }
 
 const InclusiChat: ProjectItem = {
@@ -290,43 +316,48 @@ export const project: ProjectsProps = {
     projects: [InclusiChat, EVGuard, Matchmind, FirebaseInbox, JenkinsPipeline, HealMeals, FurnitureHome, ReelVerse, LMS, Library]
 };
 
-const AISkills: SkillsItem = {
-    category: { en: "AI & Data Science", ar: "الذكاء الاصطناعي وعلوم البيانات" },
-    skills: ["Python", "NumPy", "Pandas", "Scikit-learn", "PyTorch"],
-}
-
-const VisualizationSkills: SkillsItem = {
-    category: { en: "Data Visualization & BI", ar: "تصوير البيانات وذكاء الأعمال" },
-    skills: ["Matplotlib", "Seaborn", "Power BI"],
-}
-
 const ProgrammingSkills: SkillsItem = {
     category: { en: "Programming Languages", ar: "لغات البرمجة" },
-    skills: ["Python", "Java", "C++", "C", "Assembly"],
+    skills: ["Python", "Java", "JavaScript", "TypeScript", "SQL", "PHP", "C++", "C", "Assembly"],
 }
 
 const BackendSkills: SkillsItem = {
-    category: { en: "Backend Development", ar: "تطوير الواجهة الخلفية" },
-    skills: ["Spring Boot", "Django", "MySQL", "SQL", "SQLite"],
+    category: { en: "Backend & APIs", ar: "الواجهة الخلفية وواجهات البرمجة" },
+    skills: ["Spring Boot", "FastAPI", "Django", "Laravel", "Node.js", "RESTful APIs", "OpenAPI/Swagger", "WebSockets", "Server-Sent Events (SSE)", "JWT"],
 }
 
 const FrontendSkills: SkillsItem = {
-    category: { en: "Web & UI Development", ar: "تطوير الويب وواجهات المستخدم" },
-    skills: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Responsive Design"],
+    category: { en: "Frontend & UI", ar: "الواجهة الأمامية وواجهات المستخدم" },
+    skills: ["React", "Next.js", "Vite", "HTML", "CSS", "Tailwind CSS", "Responsive Design", "Figma"],
 }
 
-const FrameworkSkills: SkillsItem = {
-    category: { en: "Tools & Frameworks", ar: "الأدوات والأطر البرمجية" },
-    skills: ["Git", "GitHub", "Postman", "Figma", "Canva", "Vercel", "Railway"],
+const DatabaseSkills: SkillsItem = {
+    category: { en: "Databases", ar: "قواعد البيانات" },
+    skills: ["MySQL", "PostgreSQL", "SQLite", "Redis"],
+}
+
+const CloudDevOpsSkills: SkillsItem = {
+    category: { en: "Cloud, DevOps & CI/CD", ar: "السحابة، DevOps والتكامل المستمر" },
+    skills: ["Docker", "Docker Compose", "Jenkins", "CI/CD", "Google Cloud Platform (GCP)", "Vercel", "Railway", "Render"],
+}
+
+const AISkills: SkillsItem = {
+    category: { en: "AI & Data Science", ar: "الذكاء الاصطناعي وعلوم البيانات" },
+    skills: ["Python", "NumPy", "Pandas", "Scikit-learn", "PyTorch", "TensorFlow", "NLP", "LLMs", "RAG", "LangGraph/LangChain", "Power BI", "Excel", "Matplotlib", "Seaborn"],
+}
+
+const TestingToolsSkills: SkillsItem = {
+    category: { en: "Testing & Tools", ar: "الاختبار والأدوات" },
+    skills: ["Git", "GitHub", "Postman", "Jest", "Automated Testing", "Debugging", "Canva"],
 }
 
 const SoftSkills: SkillsItem = {
-    category: { en: "Soft Skills", ar: "المهارات الشخصية" },
-    skills: ["Team Player", "Detail-oriented", "Communication"],
+    category: { en: "Methodologies & Soft Skills", ar: "المنهجيات والمهارات الشخصية" },
+    skills: ["Agile/Scrum", "Teamwork", "Communication", "Mentorship", "Detail-oriented"],
 }
 
 export const skill: SkillsProps = {
-    skills: [FrontendSkills, BackendSkills, ProgrammingSkills, AISkills, VisualizationSkills, FrameworkSkills, SoftSkills]
+    skills: [ProgrammingSkills, BackendSkills, FrontendSkills, DatabaseSkills, CloudDevOpsSkills, AISkills, TestingToolsSkills, SoftSkills]
 }
 
 const MindersAchievment: AchievementItem = {

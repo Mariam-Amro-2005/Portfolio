@@ -57,26 +57,31 @@ export default function ProjectCard(data: ProjectItem) {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4">
-                        <Link href={`${data.githubLink}`} target="_blank" rel="noopener noreferrer">
-                            <div className={`flex w-fit bg-linear-to-tr text-nowrap border border-gray-500 shadow-gray-400 from-indigo-600 to-purple-700 dark:border-indigo-700 dark:shadow-gray-700 dark:from-indigo-800 dark:via-indigo-600 dark:to-blue-950 rounded-full py-2 px-4 text-white text-md font-medium align-center justify-center items-center gap-2 shadow-sm hover:scale-105 transition duration-400 cursor-pointer`}>
-                                <div className="flex items-center">
-                                    {t(ui.btn.viewGitHub, lang)}
-                                </div>
-                                <div className="flex flex-row">
-                                    <Image
-                                        src="/icons/icons8-open-link-100.png"
-                                        alt="Project GitHub Link"
-                                        width={20}
-                                        height={20}
-                                        className="flex items-center"
-                                    >
-                                    </Image>
-                                </div>
-                            </div>
-                        </Link>
 
                         {
-                            data.liveLink && (
+                            data?.githubLink && (
+                                <Link href={`${data.githubLink}`} target="_blank" rel="noopener noreferrer">
+                                    <div className={`flex w-fit bg-linear-to-tr text-nowrap border border-gray-500 shadow-gray-400 from-indigo-600 to-purple-700 dark:border-indigo-700 dark:shadow-gray-700 dark:from-indigo-800 dark:via-indigo-600 dark:to-blue-950 rounded-full py-2 px-4 text-white text-md font-medium align-center justify-center items-center gap-2 shadow-sm hover:scale-105 transition duration-400 cursor-pointer`}>
+                                        <div className="flex items-center">
+                                            {t(ui.btn.viewGitHub, lang)}
+                                        </div>
+                                        <div className="flex flex-row">
+                                            <Image
+                                                src="/icons/icons8-open-link-100.png"
+                                                alt="Project GitHub Link"
+                                                width={20}
+                                                height={20}
+                                                className="flex items-center"
+                                            >
+                                            </Image>
+                                        </div>
+                                    </div>
+                                </Link>
+                            )
+                        }
+
+                        {
+                            data?.liveLink && (
                                 <Link href={`${data.liveLink}`} target="_blank" rel="noopener noreferrer">
                                     <div className={`flex w-fit bg-linear-to-tr text-nowrap border border-gray-500 shadow-gray-400 from-indigo-600 to-purple-700 dark:border-indigo-700 dark:shadow-gray-700 dark:from-indigo-800 dark:via-indigo-600 dark:to-blue-950 rounded-full py-2 px-4 text-white text-md font-medium align-center justify-center items-center gap-2 shadow-sm hover:scale-105 transition duration-400 cursor-pointer`}>
                                         <div className="flex items-center">
