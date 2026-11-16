@@ -12,7 +12,7 @@ export const hero: HeroProps = {
     typingWords: [
         { en: "Machine Learning Engineer",              ar: "مهندسة تعلم الآلة" },
         { en: "Data Science Enthusiast",                ar: "متحمسة لعلوم البيانات" },
-        { en: "AI & Computer Vision Developer",         ar: "مطوّرة ذكاء اصطناعي ورؤية حاسوبية" },
+        { en: "AI Engineer & Computer Vision Developer",         ar: "مطوّرة ذكاء اصطناعي ورؤية حاسوبية" },
         { en: "Python & PyTorch Specialist",            ar: "متخصصة في Python وPyTorch" },
         { en: "Data Analyst & Visualization Expert",    ar: "محللة بيانات وخبيرة تصوير بياني" },
         { en: "End-to-End ML Pipeline Builder",         ar: "بانية خطوط أنابيب ML من البداية للنهاية" },
