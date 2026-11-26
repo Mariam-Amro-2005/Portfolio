@@ -15,7 +15,7 @@ export const hero: HeroProps = {
         { en: "React Engineer",          ar: "مهندسة React" },
         { en: "Backend API Builder",     ar: "مطوّرة Backend وواجهات برمجية" },
         { en: "Software Engineer",       ar: "مهندسة برمجيات" },
-        { en: "3+ Years Experience",     ar: "خبرة +5 سنوات" },
+        { en: "3+ Years Experience",     ar: "خبرة +3 سنوات" },
     ],
     location: Location,
     email: Email,
