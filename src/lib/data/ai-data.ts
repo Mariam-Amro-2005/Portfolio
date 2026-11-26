@@ -7,20 +7,50 @@ const Email = "mariam.seifeldin.2005@gmail.com";
 const Phone = "+201211433445";
 const Location = "Cairo, Egypt";
 
+
 export const hero: HeroProps = {
-    name: { en: "Mariam Amro Ahmed Fathi Seifeldin", ar: "مريم عمرو أحمد فتحي سيف الدين" },
+    name: {
+        en: "Mariam Amro Ahmed Fathi Seifeldin",
+        ar: "مريم عمرو أحمد فتحي سيف الدين",
+    },
     typingWords: [
-        { en: "Machine Learning Engineer",              ar: "مهندسة تعلم الآلة" },
-        { en: "Data Science Enthusiast",                ar: "متحمسة لعلوم البيانات" },
-        { en: "AI Engineer & Computer Vision Developer",         ar: "مطوّرة ذكاء اصطناعي ورؤية حاسوبية" },
-        { en: "Python & PyTorch Specialist",            ar: "متخصصة في Python وPyTorch" },
-        { en: "Data Analyst & Visualization Expert",    ar: "محللة بيانات وخبيرة تصوير بياني" },
-        { en: "End-to-End ML Pipeline Builder",         ar: "بانية خطوط أنابيب ML من البداية للنهاية" },
-        { en: "2+ Years Experience",                    ar: "خبرة +5 سنوات" },
+        {
+            en: "AI Engineer",
+            ar: "مهندسة ذكاء اصطناعي",
+        },
+        {
+            en: "Machine Learning Engineer",
+            ar: "مهندسة تعلم الآلة",
+        },
+        {
+            en: "Data Science Enthusiast",
+            ar: "شغوفة بعلوم البيانات",
+        },
+        {
+            en: "Computer Vision Developer",
+            ar: "مطوّرة في مجال الرؤية الحاسوبية",
+        },
+        {
+            en: "Python & PyTorch Specialist",
+            ar: "متخصصة في Python وPyTorch",
+        },
+        {
+            en: "Data Analyst & Visualization Expert",
+            ar: "محللة بيانات ومتخصصة في تصور البيانات",
+        },
+        {
+            en: "End-to-End ML Pipeline Builder",
+            ar: "متخصصة في بناء مسارات تعلم الآلة المتكاملة",
+        },
+        {
+            en: "2+ Years Experience",
+            ar: "خبرة تزيد عن سنتين",
+        },
     ],
     location: Location,
     email: Email,
-}
+};
+
 
 export const about: AboutProps = {
     photo: "/profile1.jpeg",
